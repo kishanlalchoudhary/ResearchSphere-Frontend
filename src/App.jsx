@@ -11,7 +11,7 @@ import RootLayout from "./layouts/RootLayout/RootLayout";
 // Pages
 import HomePage from './pages/homepage/homePage'
 import SignIn from './pages/signIn/signIn'
-import EmailVerificationPending from './pages/emailSentForVerification./emailVerificationPending'
+import EmailVerificationPending from './pages/emailSentForVerification/emailVerificationPending'
 import EmailVerification from "./pages/emailVerification/emailVerification";
 import SignUp from "./pages/signUp/signUp";
 import Explore from "./pages/explore/explore";
