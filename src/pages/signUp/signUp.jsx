@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.png";
 import pageImage from "../../assets/signUp/signUp.png";
 
@@ -17,16 +17,16 @@ function SignUp() {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen">
+    <div className="flex flex-col lg:flex-row max-h-screen">
       {/* Left Column ------------------------------------------------------------------------------------------------*/}
 
       <div className="flex flex-col lg:h-[100vh] w-full lg:w-2/5 bg-secondary px-10 lg:pl-20 ">
         {/* topbar */}
-        <div className="h-[10vh] flex items-center justify-between lg:justify-start w-full">
+        <div className="h-[10vh] flex items-center justify-center lg:justify-start w-full">
           <img src={Logo} style={{ width: "50px" }} alt="Logo" />
           <a
             onClick={handleHomeClick}
-            className="btn btn-ghost normal-case text-3xl text-left text-primary ml-2"
+            className="btn btn-ghost normal-case text-3xl lg:text-2x text-left text-primary ml-2"
           >
             ResearchSphere
           </a>
@@ -37,7 +37,7 @@ function SignUp() {
           <div className="p-4 lg:p-5 ">
             <button
               onClick={handleLoginClick}
-              className="btn btn-primary text-accent h-12 lg:h-12 text-2xl px-10 lg:px-10"
+              className="btn btn-primary text-accent h-12 lg:h-12 text-2xl px-10 lg:px-20"
             >
               LOGIN
             </button>
@@ -56,9 +56,9 @@ function SignUp() {
       </div>
 
       {/* Right Column -----------------------------------------------------------------------------------------------*/}
-      <div className="flex flex-col lg:flex-col w-full lg:w-3/5 bg-accent px-5 lg:pl-16 justify-center items-center">
+      <div className="flex flex-col lg:flex-col w-full lg:w-3/5 bg-secondary lg:bg-accent px-5 lg:pl-16 justify-center items-center">
         {/* signUp section */}
-        <div className="lg:h-[100vh] flex flex-col justify-center items-center w-full">
+        <div className="lg:h-[90vh] flex flex-col justify-center items-center w-full">
           <div className="card min-w-full lg:min-w-fit">
             <div className="card-body shadow-2xl bg-accent rounded-lg">
               <h1 className="lg:text-3xl text-2xl text-center lg:px-24  font-bold text-primary">
@@ -71,7 +71,6 @@ function SignUp() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Name"
                   className="input input-bordered bg-accent border-primary h-12 lg:h-12"
                 />
               </div>
@@ -81,7 +80,6 @@ function SignUp() {
                 </label>
                 <input
                   type="email"
-                  placeholder="Email"
                   className="input input-bordered bg-accent border-primary h-12 lg:h-12"
                 />
               </div>
@@ -91,7 +89,6 @@ function SignUp() {
                 </label>
                 <input
                   type="password"
-                  placeholder="Password"
                   className="input input-bordered bg-accent border-primary h-12 lg:h-12"
                 />
               </div>
@@ -101,25 +98,19 @@ function SignUp() {
                 </label>
                 <input
                   type="password"
-                  placeholder="Confirm Password"
                   className="input input-bordered bg-accent border-primary h-12 lg:h-12"
                 />
               </div>
-              <div className="form-control items-center px-10 mt-6">
+              <div className="form-control items-center mt-6 mb-2">
                 <button
                   onClick={handleEmailClick}
-                  className="btn btn-primary text-accent h-12 w-full lg:h-16 text-2xl"
+                  className="btn btn-primary text-accent btn-md w-full lg:w-fit lg:px-20 text-xl"
                 >
                   REGISTER
                 </button>
               </div>
-              <div className="form-control lg:hidden items-center px-10">
-                <button
-                  onClick={handleLoginClick}
-                  className="btn btn-primary btn-outline h-12 w-full lg:h-16 text-2xl"
-                >
-                  LOGIN
-                </button>
+              <div className="form-control lg:hidden items-center mt-2">
+                <Link to="../sign-in">Already a member ? <u>SignIn</u></Link>
               </div>
             </div>
           </div>

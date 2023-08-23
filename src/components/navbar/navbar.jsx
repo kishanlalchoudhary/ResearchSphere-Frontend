@@ -19,7 +19,7 @@ const Navbar = () => {
       <div className="navbar-start">
         <details className="dropdown">
           <summary tabIndex={0} className="btn btn-ghost px-0 lg:hidden">
-            <span className="material-symbols-outlined text-xl">menu</span>
+            <span className="material-symbols-outlined text-3xl">menu</span>
           </summary>
           <ul
             tabIndex={0}
