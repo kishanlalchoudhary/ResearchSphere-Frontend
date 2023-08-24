@@ -1,13 +1,22 @@
-import Footer from "../../components/footer/footer";
-import Navbar from "../../components/navbar/navbar";
+import api from "../../api/axios";
+import { useEffect } from "react";
 
 const Explore = () => {
+  useEffect(() => {
+    api
+      .get("/myapplications/")
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
-    <div className="body">
-      <Navbar />
+    <>
       <div className="h-[70vh]">this is Explore</div>
-      <Footer />
-    </div>
+    </>
   );
 };
 export default Explore;

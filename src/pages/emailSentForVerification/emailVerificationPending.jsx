@@ -1,32 +1,21 @@
-import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.png";
-
+import { Link } from "react-router-dom";
 import pageImage from "../../assets/emailVerificationPending/emailVerificationPending.png";
+
 const EmailVerificationPending = () => {
-  // Hooks
-  const navigate = useNavigate();
-
-  const handleHomeClick = () => {
-    navigate("/");
-  };
-
   return (
     <div className="flex flex-col lg:flex-row min-h-screen">
-      {/* Left Column ------------------------------------------------------------------------------------------------*/}
       <div className="w-full lg:w-1/3 bg-secondary px-5 lg:pl-16">
-        {/* topbar */}
         <div className="py-5 flex items-center justify-center lg:justify-start">
           <img src={Logo} style={{ width: "50px" }} alt="Logo" />
-          <a
-            onClick={handleHomeClick}
+          <Link
+            to="/"
             className="btn btn-ghost normal-case text-3xl text-left text-primary ml-2"
           >
             ResearchSphere
-          </a>
+          </Link>
         </div>
       </div>
-
-      {/* Right Column -----------------------------------------------------------------------------------------------*/}
       <div className="w-full lg:w-2/3  bg-accent lg:px-20 px-10">
         <div className="pt-10 lg:pt-20">
           <div className="lg:p-12">
@@ -37,12 +26,11 @@ const EmailVerificationPending = () => {
               Please open the link to activate the account
             </h1>
             <div className="absolute bottom-20 right-16 p-4 hidden  lg:flex lg:p-2 ">
-              <button
-                onClick={handleHomeClick}
-                className="btn border-primary btn-accent text-primary hover:text-accent hover:btn-primary h-12 text-xl"
-              >
-                Back to HomePage
-              </button>
+              <Link to="/">
+                <button className="btn border-primary btn-accent text-primary hover:text-accent hover:btn-primary h-12 text-xl">
+                  Back to HomePage
+                </button>
+              </Link>
             </div>
             <div className="absolute lg:left-60 lg:bottom-0 hidden lg:flex  ">
               <img
@@ -56,4 +44,5 @@ const EmailVerificationPending = () => {
     </div>
   );
 };
+
 export default EmailVerificationPending;

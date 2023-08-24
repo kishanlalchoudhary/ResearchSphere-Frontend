@@ -1,46 +1,64 @@
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.png";
 import pageImage from "../../assets/signUp/signUp.png";
+import { useState } from "react";
+import api from "../../api/axios";
 
-function SignUp() {
-  //navigation links
+const SignUp = () => {
+  // Hooks
   const navigate = useNavigate();
 
-  const handleHomeClick = () => {
-    navigate("/");
-  };
-  const handleLoginClick = () => {
-    navigate("../sign-in");
-  };
-  const handleEmailClick = () => {
-    navigate("../email-verification-pending");
+  // States
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const handleEmailClick = async () => {
+    if (confirmPassword == password) {
+      try {
+        const request = {
+          name,
+          email,
+          password,
+        };
+        await api.post("/auth/users/", request);
+        navigate("/sign-in");
+        // navigate("../email-verification-pending");
+      } catch (err) {
+        Object.values(err.response.data).forEach((value) =>
+          console.log(value[0])
+        );
+      }
+    } else {
+      console.log("Passwords Don't Match");
+    }
   };
 
   return (
     <div className="flex flex-col lg:flex-row max-h-screen">
-      {/* Left Column ------------------------------------------------------------------------------------------------*/}
+      {/* Left Column */}
 
       <div className="flex flex-col lg:h-[100vh] w-full lg:w-2/5 bg-secondary px-10 lg:pl-20 ">
         {/* topbar */}
         <div className="h-[10vh] flex items-center justify-center lg:justify-start w-full">
           <img src={Logo} style={{ width: "50px" }} alt="Logo" />
-          <a
-            onClick={handleHomeClick}
+          <Link
+            to="/"
             className="btn btn-ghost normal-case text-3xl lg:text-2x text-left text-primary ml-2"
           >
             ResearchSphere
-          </a>
+          </Link>
         </div>
 
         <div className="lg:p-8 h-[60vh] hidden lg:flex lg:flex-col justify-center items-center">
           <h1 className="text-3xl font-bold">Already a member ?</h1>
           <div className="p-4 lg:p-5 ">
-            <button
-              onClick={handleLoginClick}
-              className="btn btn-primary text-accent h-12 lg:h-12 text-2xl px-10 lg:px-20"
-            >
-              LOGIN
-            </button>
+            <Link to="/sign-in">
+              <button className="btn btn-primary text-accent h-12 lg:h-12 text-2xl px-10 lg:px-20">
+                LOGIN
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -71,6 +89,9 @@ function SignUp() {
                 </label>
                 <input
                   type="text"
+                  name="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   className="input input-bordered bg-accent border-primary h-12 lg:h-12"
                 />
               </div>
@@ -80,6 +101,9 @@ function SignUp() {
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="input input-bordered bg-accent border-primary h-12 lg:h-12"
                 />
               </div>
@@ -89,6 +113,9 @@ function SignUp() {
                 </label>
                 <input
                   type="password"
+                  name="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   className="input input-bordered bg-accent border-primary h-12 lg:h-12"
                 />
               </div>
@@ -98,6 +125,9 @@ function SignUp() {
                 </label>
                 <input
                   type="password"
+                  name="confirmPassword"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                   className="input input-bordered bg-accent border-primary h-12 lg:h-12"
                 />
               </div>
@@ -110,7 +140,9 @@ function SignUp() {
                 </button>
               </div>
               <div className="form-control lg:hidden items-center mt-2">
-                <Link to="../sign-in">Already a member ? <u>SignIn</u></Link>
+                <Link to="../sign-in">
+                  Already a member ? <u>SignIn</u>
+                </Link>
               </div>
             </div>
           </div>
@@ -118,5 +150,5 @@ function SignUp() {
       </div>
     </div>
   );
-}
+};
 export default SignUp;

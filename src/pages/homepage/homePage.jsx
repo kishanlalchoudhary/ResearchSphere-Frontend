@@ -7,7 +7,7 @@ import st3 from "../../assets/HomePage/stepthree.png";
 const HomePage = () => {
   return (
     <>
-      {/* page hero --------------------------------------------------------------------------------------- */}
+      {/* page here */}
       <div className="hero min-h-full bg-base-100 ">
         <div className="hero-content flex-col lg:flex-row-reverse">
           {/* hero image */}
@@ -35,9 +35,9 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      {/* page hero ends here--------------------------------------------------------------------------------------- */}
+      {/* page hero ends here */}
 
-      {/* why join us cards ---------------------------------------------------------------------------------------*/}
+      {/* why join us cards */}
       <div className="bg-secondary lg:px-20 p-10">
         <h1 className="text-2xl text-center font-bold">Why Join Us ?</h1>
         <div className="flex flex-col lg:flex-row justify-around">
@@ -94,8 +94,8 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* why join us cards ends here --------------------------------------------------------------------------------------- */}
-      {/* how to use cards ---------------------------------------------------------------------------------------*/}
+      {/* why join us cards ends here */}
+      {/* how to use cards */}
       <div className="bg-accent lg:pl-20 pl-10 py-10">
         <h1 className="text-2xl lg:text-4xl text-center font-bold">
           How to use the Platform ?{" "}
@@ -145,6 +145,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+
       {/* step 3 */}
       <div className="hero min-h-full bg-base-100 ">
         <div className="hero-content flex-col lg:flex-row-reverse ">
@@ -166,7 +167,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      {/* how to use cards ends here---------------------------------------------------------------------------------------*/}
+      {/* how to use cards ends here */}
     </>
   );
 };

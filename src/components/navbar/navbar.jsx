@@ -1,18 +1,20 @@
-import { useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.png";
 import "./Navbar.css";
+import api from "../../api/axios";
+import Cookies from "js-cookie";
 
 const Navbar = () => {
-  // States
   const navigate = useNavigate();
 
-  const handleLoginClick = () => {
-    navigate("/sign-in");
+  const handleLogoutClick = () => {
+    api.post("/api/auth/token/logout/");
+    Cookies.remove("token");
+    navigate("/");
+    window.location.reload(false);
   };
 
-  const handleHomeClick = () => {
-    navigate("/");
-  };
+  const token = Cookies.get("token");
 
   return (
     <div className="navbar bg-base-100 drop-shadow-md px-5 py-0 border-b-1">
@@ -26,13 +28,17 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a className="text-base">Home</a>
+              <NavLink to="/" className="text-base">
+                Home
+              </NavLink>
             </li>
             <li>
-              <a className="text-base">Explore</a>
+              <NavLink to="/explore" className="text-base">
+                Explore
+              </NavLink>
             </li>
             <li>
-              <a className="text-base">About Us</a>
+              <NavLink className="text-base">About Us</NavLink>
             </li>
           </ul>
         </details>
@@ -44,39 +50,58 @@ const Navbar = () => {
         </div>
       </div>
       <div className="lg:hidden">
-        <a className="btn btn-ghost normal-case text-xl px-2 text-blue-500">
+        <Link
+          to="/"
+          className="btn btn-ghost normal-case text-xl px-2 text-blue-500"
+        >
           ResearchSphere
-        </a>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 p-0 space-x-8">
-          <li>
-            <a className="text-lg">Home</a>
+          <li className="text-lg">
+            <NavLink to="/">Home</NavLink>
           </li>
-          <li>
-            <a className="text-lg">Explore</a>
+          <li className="text-lg">
+            <NavLink to="/explore">Explore</NavLink>
           </li>
-          <li>
-            <a className="text-lg">About Us</a>
+          <li className="text-lg">
+            <NavLink>About Us</NavLink>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
         <div className="hidden lg:flex">
-          <button
-            onClick={handleLoginClick}
-            className="btn bg-blue-400 text-white btn-sm px-3 md:px-5 h-9"
-          >
-            Login
-          </button>
+          {token ? (
+            <button
+              onClick={handleLogoutClick}
+              className="btn bg-blue-400 text-white btn-sm px-3 md:px-5 h-9"
+            >
+              Logout
+            </button>
+          ) : (
+            <Link to="/sign-in">
+              <button className="btn bg-blue-400 text-white btn-sm px-3 md:px-5 h-9">
+                Login
+              </button>
+            </Link>
+          )}
         </div>
         <div className="lg:hidden">
-          <button
-            onClick={handleLoginClick}
-            className="btn bg-blue-400 text-white btn-sm h-10"
-          >
-            <span className="material-symbols-outlined">LOGIN</span>
-          </button>
+          {token ? (
+            <button
+              onClick={handleLogoutClick}
+              className="btn bg-blue-400 text-white btn-sm h-10"
+            >
+              <span className="material-symbols-outlined">LOGOUT</span>
+            </button>
+          ) : (
+            <Link to="/sign-in">
+              <button className="btn bg-blue-400 text-white btn-sm h-10">
+                <span className="material-symbols-outlined">LOGIN</span>
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </div>
