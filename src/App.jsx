@@ -17,8 +17,6 @@ import IndiOpportunity from "./pages/indiOpportunity/indiOpportunity";
 
 const App = () => {
   const token = Cookies.get("token");
-import ConfirmationalModal from "./components/confirmationalModal/confirmationalModal";
-import AppliedModal from "./components/appliedModal/appliedModal";
 
   return (
     <Routes>
@@ -29,6 +27,8 @@ import AppliedModal from "./components/appliedModal/appliedModal";
           path="explore"
           element={token ? <Explore /> : <Navigate to="/sign-in" />}
         />
+        <Route path="create-opportunity" element={<CreateOpportunity />} />
+        <Route path="test" element={<IndiOpportunity />} />
       </Route>
       <Route
         exact
@@ -49,29 +49,6 @@ import AppliedModal from "./components/appliedModal/appliedModal";
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
-        path="explore"
-        element={
-          // -------->    remove this shit after authentication implemented
-          <Explore />
-        }
-      ></Route>
-      <Route
-        path="test"
-        element={
-          // -------->    remove this shit after authentication implemented
-          <IndiOpportunity/>
-          // <ConfirmationalModal/>
-          // <AppliedModal/>
-        }
-      ></Route>
-      <Route path="create-opportunity" element={<CreateOpportunity/>}></Route>
-      {/* <Route path="*" element={} /> */}
-    </Route>
-  )
-);
-
-const App = () => {
-  return <RouterProvider router={router} />;
 };
 
 export default App;

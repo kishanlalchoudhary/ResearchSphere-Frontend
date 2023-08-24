@@ -77,16 +77,10 @@ const Navbar = () => {
             <NavLink>About Us</NavLink>
           </li>
           <li>
-            <a className="text-base">My Application</a>
+            <NavLink className="text-base">My Application</NavLink>
           </li>
           <li>
-            <a className="text-base">My Opportunities</a>
-          </li>
-          <li>
-            <Link className="text-base">My Application</Link>
-          </li>
-          <li>
-            <Link className="text-base">My Opportunities</Link>
+            <NavLink className="text-base">My Opportunities</NavLink>
           </li>
         </ul>
       </div>

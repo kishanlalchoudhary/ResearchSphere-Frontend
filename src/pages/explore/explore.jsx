@@ -22,7 +22,7 @@ const Explore = () => {
   return (
     <div className="relative">
       <div className="top-0 left-0 right-0 sticky h-[10vh]">
-        <Navbar/>
+        {/* <Navbar /> */}
       </div>
       <div className="flex flex-col lg:flex-row h-[90vh]">
         <div className="lg:w-3/12">
@@ -37,9 +37,9 @@ const Explore = () => {
           <OpportunitySmall />
         </div>
       </div>
-      {/* <OpportunitySmall/> */}
-      {/* <OpportunityLarge/> */}
-      {/* <ConfirmationalModal/> */}
+      <OpportunitySmall />
+      <OpportunityLarge />
+      <ConfirmationalModal />
       {/* <Footer /> */}
     </div>
   );
