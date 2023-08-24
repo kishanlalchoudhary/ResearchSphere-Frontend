@@ -12,9 +12,13 @@ import SignUp from "./pages/signUp/signUp";
 import Explore from "./pages/explore/explore";
 import NotFound from "./pages/notFound/notFound";
 import Cookies from "js-cookie";
+import CreateOpportunity from "./pages/createOpportunity/createOpportunity";
+import IndiOpportunity from "./pages/indiOpportunity/indiOpportunity";
 
 const App = () => {
   const token = Cookies.get("token");
+import ConfirmationalModal from "./components/confirmationalModal/confirmationalModal";
+import AppliedModal from "./components/appliedModal/appliedModal";
 
   return (
     <Routes>
@@ -45,6 +49,29 @@ const App = () => {
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
+        path="explore"
+        element={
+          // -------->    remove this shit after authentication implemented
+          <Explore />
+        }
+      ></Route>
+      <Route
+        path="test"
+        element={
+          // -------->    remove this shit after authentication implemented
+          <IndiOpportunity/>
+          // <ConfirmationalModal/>
+          // <AppliedModal/>
+        }
+      ></Route>
+      <Route path="create-opportunity" element={<CreateOpportunity/>}></Route>
+      {/* <Route path="*" element={} /> */}
+    </Route>
+  )
+);
+
+const App = () => {
+  return <RouterProvider router={router} />;
 };
 
 export default App;

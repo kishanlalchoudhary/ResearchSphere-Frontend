@@ -37,8 +37,16 @@ const Navbar = () => {
                 Explore
               </NavLink>
             </li>
+            {/* you need to make sure that the about us gets hidden  after  login */}
             <li>
               <NavLink className="text-base">About Us</NavLink>
+            </li>
+            {/* you need to make sure that the my applicaitons and opportunities be hidden  before  login */}
+            <li>
+              <a className="text-base">My Application</a>
+            </li>
+            <li>
+              <a className="text-base">My Opportunities</a>
             </li>
           </ul>
         </details>
@@ -67,6 +75,18 @@ const Navbar = () => {
           </li>
           <li className="text-lg">
             <NavLink>About Us</NavLink>
+          </li>
+          <li>
+            <a className="text-base">My Application</a>
+          </li>
+          <li>
+            <a className="text-base">My Opportunities</a>
+          </li>
+          <li>
+            <Link className="text-base">My Application</Link>
+          </li>
+          <li>
+            <Link className="text-base">My Opportunities</Link>
           </li>
         </ul>
       </div>
