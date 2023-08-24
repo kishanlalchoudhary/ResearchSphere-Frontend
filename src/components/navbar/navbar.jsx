@@ -26,13 +26,21 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a className="text-base">Home</a>
+              <a  className="text-base">Home</a>
             </li>
             <li>
               <a className="text-base">Explore</a>
             </li>
+            {/* you need to make sure that the about us gets hidden  after  login */}
             <li>
-              <a className="text-base">About Us</a>
+              <a className="text-base">About Us</a>       
+            </li>
+            {/* you need to make sure that the my applicaitons and opportunities be hidden  before  login */}
+            <li>
+              <a className="text-base">My Application</a>
+            </li>
+            <li>
+              <a className="text-base">My Opportunities</a>
             </li>
           </ul>
         </details>
@@ -58,6 +66,12 @@ const Navbar = () => {
           </li>
           <li>
             <a className="text-lg">About Us</a>
+          </li>
+          <li>
+            <a className="text-base">My Application</a>
+          </li>
+          <li>
+            <a className="text-base">My Opportunities</a>
           </li>
         </ul>
       </div>

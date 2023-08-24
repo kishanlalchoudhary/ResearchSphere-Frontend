@@ -15,10 +15,14 @@ import EmailVerificationPending from "./pages/emailSentForVerification/emailVeri
 import EmailVerification from "./pages/emailVerification/emailVerification";
 import SignUp from "./pages/signUp/signUp";
 import Explore from "./pages/explore/explore";
+import CreateOpportunity from "./pages/createOpportunity/createOpportunity";
+import IndiOpportunity from "./pages/indiOpportunity/indiOpportunity";
 
 //components
 import Navbar from "./components/navbar/navbar";
 import Footer from "./components/footer/footer";
+import ConfirmationalModal from "./components/confirmationalModal/confirmationalModal";
+import AppliedModal from "./components/appliedModal/appliedModal";
 
 //assets
 
@@ -50,6 +54,16 @@ const router = createBrowserRouter(
           <Explore />
         }
       ></Route>
+      <Route
+        path="test"
+        element={
+          // -------->    remove this shit after authentication implemented
+          <IndiOpportunity/>
+          // <ConfirmationalModal/>
+          // <AppliedModal/>
+        }
+      ></Route>
+      <Route path="create-opportunity" element={<CreateOpportunity/>}></Route>
       {/* <Route path="*" element={} /> */}
     </Route>
   )
