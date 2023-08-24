@@ -7,17 +7,17 @@ import st3 from "../../assets/HomePage/stepthree.png";
 const HomePage = () => {
   return (
     <>
-      {/* page here */}
+      {/* page her */}
       <div className="hero min-h-full bg-base-100 ">
         <div className="hero-content flex-col lg:flex-row-reverse">
           {/* hero image */}
-          <div className="lg:py-20 px-20">
+          <div className="lg:py-20 lg:px-20 px-10">
             <img src={HeroPic} className="lg:max-w-md min-w-xs rounded-lg" />
           </div>
 
           {/* company slogan */}
-          <div className="pr-40">
-            <h1 className="text-4xl lg:text-6xl font-bold text-left pl-10 lg:pl-0">
+          <div className="lg:pr-40">
+            <h1 className="text-4xl lg:text-6xl font-bold text-left">
               Empowering
               <br />
               Curiosity,
@@ -26,10 +26,10 @@ const HomePage = () => {
               <br />
               Discoveries
             </h1>
-            <p className="py-6 pl-10 text-xl lg:pl-0">
+            <p className="py-6 text-xl lg:pl-0">
               Connect to research opportunities{" "}
             </p>
-            <button className="btn btn-primary text-accent ml-10 lg:ml-0">
+            <button className="btn btn-primary text-accent lg:ml-0">
               Get Started
             </button>
           </div>
@@ -38,7 +38,7 @@ const HomePage = () => {
       {/* page hero ends here */}
 
       {/* why join us cards */}
-      <div className="bg-secondary lg:px-20 p-10">
+      <div className="bg-secondary lg:px-20 py-10 px-7">
         <h1 className="text-2xl text-center font-bold">Why Join Us ?</h1>
         <div className="flex flex-col lg:flex-row justify-around">
           {/* card 1 */}
@@ -96,7 +96,7 @@ const HomePage = () => {
 
       {/* why join us cards ends here */}
       {/* how to use cards */}
-      <div className="bg-accent lg:pl-20 pl-10 py-10">
+      <div className="bg-accent lg:pl-20 px-auto py-10">
         <h1 className="text-2xl lg:text-4xl text-center font-bold">
           How to use the Platform ?{" "}
         </h1>
@@ -106,11 +106,11 @@ const HomePage = () => {
       <div className="hero min-h-full bg-base-100 ">
         <div className="hero-content flex-col lg:flex-row-reverse ">
           {/* step one image */}
-          <div className="px-20 ">
+          <div className="lg:px-20 px-10">
             <img src={st1} className="lg:max-w-md min-w-xs rounded-lg" />
           </div>
 
-          <div className="lg:pr-40 px-10">
+          <div className="lg:pr-40 sm:px-10">
             <h1 className="text-2xl lg:text-4xl font-bold">
               Connect to platform and build your profile
             </h1>
@@ -128,11 +128,11 @@ const HomePage = () => {
       <div className="hero min-h-full bg-base-100 ">
         <div className="hero-content flex-col lg:flex-row ">
           {/* step two image */}
-          <div className="px-20">
+          <div className="lg:px-20 px-10">
             <img src={st2} className="lg:max-w-md min-w-xs rounded-lg" />
           </div>
 
-          <div className="lg:pr-40 px-10">
+          <div className="lg:pr-40 sm:px-10">
             <h1 className="text-2xl lg:text-4xl font-bold">
               Explore the various opportunities{" "}
             </h1>
@@ -150,11 +150,11 @@ const HomePage = () => {
       <div className="hero min-h-full bg-base-100 ">
         <div className="hero-content flex-col lg:flex-row-reverse ">
           {/* step three image */}
-          <div className="px-20">
+          <div className="lg:px-20 px-10">
             <img src={st3} className="lg:max-w-md min-w-xs rounded-lg" />
           </div>
 
-          <div className="lg:pr-40 px-10">
+          <div className="lg:pr-40 sm:px-10">
             <h1 className="text-2xl lg:text-4xl font-bold">
               Join the Research opportunity
             </h1>
