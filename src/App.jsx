@@ -15,11 +15,10 @@ import NotFound from "./pages/notFound/notFound";
 import CreateOpportunity from "./pages/createOpportunity/createOpportunity";
 import OpportunityDetail from "./pages/opportunityDetail/opportunityDetail";
 import MyApplications from "./pages/myApplications/myApplications";
+import MyPosts from "./pages/myPosts/myPosts";
 
 const App = () => {
   const token = Cookies.get("token");
-import MultiSelectInput from "./components/multiSelectInput/multiSelectInput";
-import MyPosts from "./pages/myPosts/myPosts";
 
   return (
     <Routes>
@@ -39,6 +38,16 @@ import MyPosts from "./pages/myPosts/myPosts";
           exact
           path="opportunity-detail"
           element={token ? <OpportunityDetail /> : <Navigate to="/sign-in" />}
+        />
+        <Route
+          exact
+          path="my-posts"
+          element={token ? <MyPosts /> : <Navigate to="/sign-in" />}
+        />
+        <Route
+          exact
+          path="my-applications"
+          element={token ? <MyApplications /> : <Navigate to="/sign-in" />}
         />
       </Route>
       <Route

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import CreatableSelect from "react-select/creatable";
 
 const MultiSelectInput = () => {
@@ -26,9 +26,8 @@ const MultiSelectInput = () => {
   };
 
   return (
-    <div >
+    <div>
       <CreatableSelect
-
         isMulti
         value={selectedOptions}
         options={options}

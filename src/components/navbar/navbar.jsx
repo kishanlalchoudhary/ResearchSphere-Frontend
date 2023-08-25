@@ -44,12 +44,12 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="/my-applications" className="text-base">
-                My Application
+                My Applications
               </Link>
             </li>
             <li>
-              <Link to="/my-opportunities" className="text-base">
-                My Opportunities
+              <Link to="/my-posts" className="text-base">
+                My Posts
               </Link>
             </li>
           </ul>
@@ -91,8 +91,8 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/my-opportunities" className="text-base">
-              My Opportunities
+            <NavLink to="/my-posts" className="text-base">
+              My Posts
             </NavLink>
           </li>
         </ul>
