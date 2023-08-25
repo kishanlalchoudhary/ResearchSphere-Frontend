@@ -1,3 +1,13 @@
 .navbar {
   color: #6093FF;
 }
+
+.navbar li a {
+  background-color: white;
+  color: #6093FF;
+}
+
+.navbar li .active {
+  background-color: #6093FF !important;
+  color: white !important;
+}

@@ -1,8 +1,8 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.png";
-import "./Navbar.css";
 import api from "../../api/axios";
 import Cookies from "js-cookie";
+import "./Navbar.css";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ const Navbar = () => {
   const token = Cookies.get("token");
 
   return (
-    <div className="navbar bg-base-100 drop-shadow-md px-5 py-0 border-b-1">
+    <div className="navbar bg-base-100 drop-shadow-md px-5 py-0 border-b-1 top-0 left-0 right-0 sticky z-40 h-[10vh]">
       <div className="navbar-start">
         <details className="dropdown">
           <summary tabIndex={0} className="btn btn-ghost px-0 lg:hidden">
@@ -25,7 +25,7 @@ const Navbar = () => {
           </summary>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-md dropdown-content z-1 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
               <NavLink to="/" className="text-base">
@@ -37,30 +37,37 @@ const Navbar = () => {
                 Explore
               </NavLink>
             </li>
-            {/* you need to make sure that the about us gets hidden  after  login */}
             <li>
-              <NavLink className="text-base">About Us</NavLink>
-            </li>
-            {/* you need to make sure that the my applicaitons and opportunities be hidden  before  login */}
-            <li>
-              <a className="text-base">My Application</a>
+              <NavLink to="/post-opportunity" className="text-base">
+                Post Opportunity
+              </NavLink>
             </li>
             <li>
-              <a className="text-base">My Opportunities</a>
+              <Link to="/my-applications" className="text-base">
+                My Application
+              </Link>
+            </li>
+            <li>
+              <Link to="/my-opportunities" className="text-base">
+                My Opportunities
+              </Link>
             </li>
           </ul>
         </details>
         <div className="hidden lg:flex flex-row items-center">
           <img src={Logo} className="w-9 h-9 mb-2" />
-          <a className="btn btn-ghost normal-case text-xl px-2 text-blue-500">
+          <Link
+            to="/"
+            className="btn btn-ghost normal-case text-xl px-2 text-blue-500"
+          >
             ResearchSphere
-          </a>
+          </Link>
         </div>
       </div>
       <div className="lg:hidden">
         <Link
           to="/"
-          className="btn btn-ghost normal-case text-xl px-2 text-blue-500"
+          className="btn btn-ghost normal-case text-2xl px-2 text-blue-500"
         >
           ResearchSphere
         </Link>
@@ -73,14 +80,20 @@ const Navbar = () => {
           <li className="text-lg">
             <NavLink to="/explore">Explore</NavLink>
           </li>
-          <li className="text-lg">
-            <NavLink>About Us</NavLink>
+          <li>
+            <NavLink to="/post-opportunity" className="text-base">
+              Post Opportunity
+            </NavLink>
           </li>
           <li>
-            <NavLink className="text-base">My Application</NavLink>
+            <NavLink to="/my-applications" className="text-base">
+              My Applications
+            </NavLink>
           </li>
           <li>
-            <NavLink className="text-base">My Opportunities</NavLink>
+            <NavLink to="/my-opportunities" className="text-base">
+              My Opportunities
+            </NavLink>
           </li>
         </ul>
       </div>
@@ -107,12 +120,12 @@ const Navbar = () => {
               onClick={handleLogoutClick}
               className="btn bg-blue-400 text-white btn-sm h-10"
             >
-              <span className="material-symbols-outlined">LOGOUT</span>
+              <span className="material-symbols-outlined">logout</span>
             </button>
           ) : (
             <Link to="/sign-in">
-              <button className="btn bg-blue-400 text-white btn-sm h-10">
-                <span className="material-symbols-outlined">LOGIN</span>
+              <button className="btn bg-blue-400 text-white btn-sm h-10 hidden">
+                LOGIN
               </button>
             </Link>
           )}

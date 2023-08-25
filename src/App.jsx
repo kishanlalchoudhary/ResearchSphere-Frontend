@@ -1,4 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
+import Cookies from "js-cookie";
 
 // Layouts
 import RootLayout from "./layouts/RootLayout/RootLayout";
@@ -11,9 +12,8 @@ import EmailVerification from "./pages/emailVerification/emailVerification";
 import SignUp from "./pages/signUp/signUp";
 import Explore from "./pages/explore/explore";
 import NotFound from "./pages/notFound/notFound";
-import Cookies from "js-cookie";
 import CreateOpportunity from "./pages/createOpportunity/createOpportunity";
-import IndiOpportunity from "./pages/indiOpportunity/indiOpportunity";
+import OpportunityDetail from "./pages/opportunityDetail/opportunityDetail";
 
 const App = () => {
   const token = Cookies.get("token");
@@ -27,8 +27,16 @@ const App = () => {
           path="explore"
           element={token ? <Explore /> : <Navigate to="/sign-in" />}
         />
-        <Route path="create-opportunity" element={<CreateOpportunity />} />
-        <Route path="test" element={<IndiOpportunity />} />
+        <Route
+          exact
+          path="post-opportunity"
+          element={token ? <CreateOpportunity /> : <Navigate to="/sign-in" />}
+        />
+        <Route
+          exact
+          path="opportunity-detail"
+          element={token ? <OpportunityDetail /> : <Navigate to="/sign-in" />}
+        />
       </Route>
       <Route
         exact

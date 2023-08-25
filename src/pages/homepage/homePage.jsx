@@ -3,21 +3,22 @@ import adv1 from "../../assets/HomePage/adv.png";
 import st1 from "../../assets/HomePage/stepone.png";
 import st2 from "../../assets/HomePage/steptwo.png";
 import st3 from "../../assets/HomePage/stepthree.png";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
     <>
       {/* page her */}
       <div className="hero min-h-full bg-base-100 ">
-        <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="hero-content flex-col lg:flex-row-reverse py-10 lg:py-0">
           {/* hero image */}
           <div className="lg:py-20 lg:px-20 px-10">
             <img src={HeroPic} className="lg:max-w-md min-w-xs rounded-lg" />
           </div>
 
           {/* company slogan */}
-          <div className="lg:pr-40">
-            <h1 className="text-4xl lg:text-6xl font-bold text-left">
+          <div className="lg:pr-40 text-center lg:text-left">
+            <h1 className="text-4xl lg:text-6xl font-bold lg:text-left">
               Empowering
               <br />
               Curiosity,
@@ -26,12 +27,14 @@ const HomePage = () => {
               <br />
               Discoveries
             </h1>
-            <p className="py-6 text-xl lg:pl-0">
+            <p className="py-6 text-xl lg:pl-0 lg:text-left">
               Connect to research opportunities{" "}
             </p>
-            <button className="btn btn-primary text-accent lg:ml-0">
-              Get Started
-            </button>
+            <Link to="/explore">
+              <button className="btn btn-primary text-accent lg:ml-0">
+                Get Started
+              </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -39,7 +42,9 @@ const HomePage = () => {
 
       {/* why join us cards */}
       <div className="bg-secondary lg:px-20 py-10 px-7">
-        <h1 className="text-2xl text-center font-bold">Why Join Us ?</h1>
+        <h1 className="text-2xl lg:text-4xl text-center font-bold">
+          Why Join Us ?
+        </h1>
         <div className="flex flex-col lg:flex-row justify-around">
           {/* card 1 */}
           <div className="pt-10 lg:pr-10">
