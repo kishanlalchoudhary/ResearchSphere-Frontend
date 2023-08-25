@@ -14,9 +14,12 @@ import Explore from "./pages/explore/explore";
 import NotFound from "./pages/notFound/notFound";
 import CreateOpportunity from "./pages/createOpportunity/createOpportunity";
 import OpportunityDetail from "./pages/opportunityDetail/opportunityDetail";
+import MyApplications from "./pages/myApplications/myApplications";
 
 const App = () => {
   const token = Cookies.get("token");
+import MultiSelectInput from "./components/multiSelectInput/multiSelectInput";
+import MyPosts from "./pages/myPosts/myPosts";
 
   return (
     <Routes>

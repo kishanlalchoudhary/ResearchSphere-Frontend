@@ -1,6 +1,10 @@
+import OpportunityForm from "../../components/opportunityForm/opportunityForm";
+
 const CreateOpportunity = () => {
   return (
-    <div>Create Opportunity</div>
+    <div>
+      <OpportunityForm />
+    </div>
   );
 };
 export default CreateOpportunity;
