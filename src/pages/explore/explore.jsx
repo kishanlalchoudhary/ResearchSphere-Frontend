@@ -13,13 +13,14 @@ const Explore = () => {
       <div className="top-0 left-0 right-0 sticky h-[10vh]">
         <Navbar/>
       </div>
-      <div className="flex flex-col lg:flex-row h-[90vh]">
-        <div className="lg:w-3/12">
+      <div className="flex flex-col lg:flex-row h-[90vh] ">
+        <div className="lg:w-3/12 bg-base">
           <div className="sticky top-0">
             <Filter />
+            <PostOpportunity/>
           </div>
         </div>
-        <div className="lg:w-9/12 overflow-y-auto">
+        <div className="lg:w-9/12 overflow-y-auto bg-base">
           <OpportunitySmall />
           <OpportunitySmall />
           <OpportunitySmall />

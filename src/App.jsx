@@ -17,12 +17,15 @@ import SignUp from "./pages/signUp/signUp";
 import Explore from "./pages/explore/explore";
 import CreateOpportunity from "./pages/createOpportunity/createOpportunity";
 import IndiOpportunity from "./pages/indiOpportunity/indiOpportunity";
+import MyApplications from "./pages/myApplications/myApplications";
 
 //components
 import Navbar from "./components/navbar/navbar";
 import Footer from "./components/footer/footer";
 import ConfirmationalModal from "./components/confirmationalModal/confirmationalModal";
 import AppliedModal from "./components/appliedModal/appliedModal";
+import MultiSelectInput from "./components/multiSelectInput/multiSelectInput";
+import MyPosts from "./pages/myPosts/myPosts";
 
 //assets
 
@@ -58,9 +61,12 @@ const router = createBrowserRouter(
         path="test"
         element={
           // -------->    remove this shit after authentication implemented
-          <IndiOpportunity/>
+          // <Ind iOpportunity/>
           // <ConfirmationalModal/>
           // <AppliedModal/>
+          // <MyApplications/>
+          <MyPosts/>
+          // <MultiSelectInput/>
         }
       ></Route>
       <Route path="create-opportunity" element={<CreateOpportunity/>}></Route>
