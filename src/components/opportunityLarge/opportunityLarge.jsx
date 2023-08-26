@@ -63,7 +63,7 @@ const OpportunityLarge = ({ opportunity }) => {
           ))}
         </div>
         <div className="mx-2">
-          <p className="text-lg mt-2 flex justify-between items-center">
+          <div className="text-lg mt-2 flex flex-col justify-between items-center">
             <div>
               <b>Start Date : </b>
               {opportunity.start_date}
@@ -72,17 +72,15 @@ const OpportunityLarge = ({ opportunity }) => {
               <b>End Date : </b>
               {opportunity.end_date}
             </div>
-            <div className="hidden lg:flex">
-              <p>
-                <b>Created by : </b>
-                {opportunity.created_by}
-              </p>
+            <div>
+              <b>Created by : </b>
+              {opportunity.created_by}
             </div>
-          </p>
-          <p className="lg:hidden text-lg">
+          </div>
+          {/* <div className="text-lg">
             <b>Created by : </b>
             {opportunity.created_by}
-          </p>
+          </div> */}
           <p className="mt-10 px-1 text-lg text-justify">
             <b>
               Descripition : <br />
@@ -111,7 +109,7 @@ const OpportunityLarge = ({ opportunity }) => {
           </button>
           <dialog id="my_modal_2" className="modal">
             <form method="dialog" className="modal-box bg-accent">
-              <ConfirmationalModal opportunityId={opportunity.id}/>
+              <ConfirmationalModal opportunityId={opportunity.id} />
             </form>
           </dialog>
         </div>

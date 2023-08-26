@@ -101,7 +101,7 @@ const HomePage = () => {
 
       {/* why join us cards ends here */}
       {/* how to use cards */}
-      <div className="bg-accent lg:pl-20 px-auto py-10">
+      <div className="lg:pl-20 px-auto py-10">
         <h1 className="text-2xl lg:text-4xl text-center font-bold">
           How to use the Platform ?{" "}
         </h1>

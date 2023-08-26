@@ -18,8 +18,8 @@ import MyApplications from "./pages/myApplications/myApplications";
 import MyPosts from "./pages/myPosts/myPosts";
 
 const App = () => {
-  const token = Cookies.get("token");
-  // const token = "test";
+  // const token = Cookies.get("token");
+  const token = "test";
 
   return (
     <Routes>
