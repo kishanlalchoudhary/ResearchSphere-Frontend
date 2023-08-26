@@ -25,7 +25,7 @@ const Navbar = () => {
           </summary>
           <ul
             tabIndex={0}
-            className="menu menu-md dropdown-content z-1 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-md dropdown-content z-1 p-2 shadow bg-base-100 rounded-box w-52 gap-2"
           >
             <li>
               <NavLink to="/" className="text-base">

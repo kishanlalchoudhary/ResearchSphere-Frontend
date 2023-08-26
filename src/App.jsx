@@ -19,6 +19,7 @@ import MyPosts from "./pages/myPosts/myPosts";
 
 const App = () => {
   const token = Cookies.get("token");
+  // const token = "test";
 
   return (
     <Routes>
@@ -36,7 +37,7 @@ const App = () => {
         />
         <Route
           exact
-          path="opportunity-detail"
+          path="opportunity-detail/:opportunityId"
           element={token ? <OpportunityDetail /> : <Navigate to="/sign-in" />}
         />
         <Route

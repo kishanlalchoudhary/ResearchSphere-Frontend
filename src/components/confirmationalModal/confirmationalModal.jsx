@@ -1,7 +1,20 @@
 import { Link } from "react-router-dom";
 import AppliedModal from "../appliedModal/appliedModal";
+import api from "../../api/axios";
+import PropTypes from "prop-types";
 
-const ConfirmationalModal = () => {
+const ConfirmationalModal = ({ opportunityId }) => {
+  const applyHandler = async () => {
+    try {
+      console.log(opportunityId);
+      const response = await api.get(`/opportunities/${opportunityId}/apply`);
+      console.log(response.data.detail);
+      window.my_modal_3.showModal();
+    } catch (err) {
+      console.log(err.response.data.detail);
+    }
+  };
+
   return (
     <div className="my-6 bg-accent flex flex-col justify-center items-center max-w-md">
       <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
@@ -11,7 +24,7 @@ const ConfirmationalModal = () => {
         Are You sure you want to apply to the opportunity ?{" "}
       </h2>
       <button
-        onClick={() => window.my_modal_3.showModal()}
+        onClick={applyHandler}
         className="m-6 bg-primary text-white px-10 py-2 rounded-lg text-2xl"
       >
         Apply for it
@@ -31,6 +44,10 @@ const ConfirmationalModal = () => {
       </p>
     </div>
   );
+};
+
+ConfirmationalModal.propTypes = {
+  opportunityId: PropTypes.string.isRequired,
 };
 
 export default ConfirmationalModal;
