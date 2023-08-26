@@ -48,20 +48,22 @@ const OpportunitySmall = ({ opportunity }) => {
   // };
 
   return (
-    <div className="p-6 border-2 border-secondary rounded-lg shadow-md bg-accent flex flex-col">
-      <h2 className="text-2xl font-semibold w-full">{opportunity.title}</h2>
-      <div className="flex flex-wrap mt-1 py-3">
-        {opportunity.domains.map((domain) => (
-          <h3
-            key={domain.id}
-            className="text-xl rounded-lg border border-primary px-1 font-semibold my-1 mx-1 text-primary w-fit"
-          >
-            {domain.name}
-          </h3>
-        ))}
+    <div className="p-6 border-2 border-secondary rounded-lg shadow-md bg-accent flex flex-col mx-4">
+      <div className="flex justify-between sm:flex-row flex-col">
+        <h2 className="text-2xl font-semibold">{opportunity.title}</h2>
+        <div className="flex gap-4 mt-5 sm:mt-0">
+          {opportunity.domains.map((domain) => (
+            <h3
+              key={domain.id}
+              className="text-md rounded-lg border border-primary px-2 py-1 font-semibold text-primary"
+            >
+              {domain.name}
+            </h3>
+          ))}
+        </div>
       </div>
       <div className="px-2">
-        <p className="text-lg mt-2 flex justify-between items-center">
+        <div className="text-lg my-5 flex flex-wrap justify-between gap-2 items-start">
           <div>
             <b>Start Date : </b>
             {opportunity.start_date}
@@ -70,21 +72,14 @@ const OpportunitySmall = ({ opportunity }) => {
             <b>End Date : </b>
             {opportunity.end_date}
           </div>
-          <div className="hidden lg:flex">
-            <p>
-              {" "}
-              <b>Created by : </b>
-              {opportunity.created_by}
-            </p>
+          <div>
+            <b>Created by : </b>
+            {opportunity.created_by}
           </div>
-        </p>
-        <p className="lg:hidden text-lg">
-          <b>Created by: </b>
-          {opportunity.created_by}
-        </p>
+        </div>
       </div>
-      <Link to={`/opportunity-detail/${opportunity.id}`} className="min-w-full">
-        <button className="mt-4 bg-primary text-white px-4 py-2 rounded-lg w-full">
+      <Link to={`/opportunity-detail/${opportunity.id}`}>
+        <button className="bg-primary text-white  font-semibold px-4 py-2 rounded-lg w-full">
           Read More
         </button>
       </Link>

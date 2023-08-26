@@ -49,21 +49,23 @@ const OpportunityLarge = ({ opportunity }) => {
   // };
 
   return (
-    <div className="lg:flex lg:items-center lg:justify-center">
-      <div className="lg:m-10 m-4 p-4 lg:p-6 border border-secondary rounded-lg shadow-md bg-accent flex flex-col lg:max-w-5xl">
-        <h2 className="text-2xl font-semibold w-full">{opportunity.title}</h2>
-        <div className="flex flex-wrap mt-1 py-3">
-          {opportunity.domains?.map((domain, index) => (
-            <h3
-              key={index}
-              className="text-xl rounded-lg border border-primary px-1 font-semibold my-1 mx-1 text-primary w-fit"
-            >
-              {domain.name}
-            </h3>
-          ))}
+    <div className="lg:flex lg:items-center lg:justify-center ">
+      <div className="my-10 mx-5 p-4 lg:p-6 border border-secondary rounded-lg shadow-md bg-accent flex flex-col w-6/6 lg:w-3/6 ">
+        <div className="flex justify-between sm:flex-row flex-col">
+          <h2 className="text-2xl font-semibold">{opportunity.title}</h2>
+          <div className="flex gap-4 mt-5 sm:mt-0">
+            {opportunity.domains?.map((domain, index) => (
+              <h3
+                key={index}
+                className="text-md rounded-lg border border-primary px-2 py-1 font-semibold text-primary"
+              >
+                {domain.name}
+              </h3>
+            ))}
+          </div>
         </div>
-        <div className="mx-2">
-          <div className="text-lg mt-2 flex flex-col justify-between items-center">
+        <div className="px-1">
+          <div className="text-lg my-5 flex flex-wrap justify-between gap-2 items-start">
             <div>
               <b>Start Date : </b>
               {opportunity.start_date}
@@ -77,33 +79,28 @@ const OpportunityLarge = ({ opportunity }) => {
               {opportunity.created_by}
             </div>
           </div>
-          {/* <div className="text-lg">
-            <b>Created by : </b>
-            {opportunity.created_by}
-          </div> */}
-          <p className="mt-10 px-1 text-lg text-justify">
-            <b>
-              Descripition : <br />
-            </b>
-            <p className="px-1">{opportunity.description}</p>
-          </p>
-          <p className="mt-3 px-1 text-lg text-justify">
-            <b>
-              Skills : <br />
-            </b>
-            <div className="flex flex-col px-">
-              {opportunity.skills?.map((skill, index) => (
-                <h3 key={index} className="text-xl w-fit">
-                  {skill.name}
-                </h3>
-              ))}
-            </div>
-          </p>
+        </div>
+        <div className="sm:mb-6 px-1 text-lg text-justify">
+          <b>
+            Descripition : <br />
+          </b>
+          <p className="px-1">{opportunity.description}</p>
+        </div>
+        <div className="flex flex-wrap justify-start items-center text-lg gap-4 my-5 sm:mt-0 px-1">
+          <b>Skills : </b>
+          {opportunity.skills?.map((skill, index) => (
+            <h3
+              key={index}
+              className="text-md rounded-lg border border-primary px-2 py-1 font-semibold text-primary"
+            >
+              {skill.name}
+            </h3>
+          ))}
         </div>
         <div className="flex justify-center">
           <button
             onClick={() => window.my_modal_2.showModal()}
-            className="mt-4 bg-primary text-white px-4 py-2 w-full rounded-lg max-w-sm "
+            className="bg-primary text-white  font-semibold px-4 py-2 rounded-lg w-full"
           >
             APPLY NOW
           </button>
