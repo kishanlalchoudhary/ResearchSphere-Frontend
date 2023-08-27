@@ -4,6 +4,7 @@ import Logo from "../../assets/logo.png";
 import pageImage from "../../assets/signIn/signIn.png";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { ToastContainer, toast } from "react-toastify";
 
 const SignIn = () => {
   // Hooks
@@ -13,7 +14,8 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
     try {
       const request = {
         email,
@@ -26,16 +28,22 @@ const SignIn = () => {
       const token = response.data.auth_token;
       Cookies.set("token", token);
       navigate("/explore");
-      window.location.reload(false);
+      window.location.reload();
     } catch (err) {
-      console.log(err);
+      Object.values(err.response.data).forEach((value) =>
+        // console.log(value[0])
+        toast.error(value[0], {
+          theme: "colored",
+          closeOnClick: true,
+          pauseOnHover: true,
+        })
+      );
     }
   };
 
   return (
     <div className="flex flex-col lg:flex-row min-h-screen">
       {/* Left Column */}
-
       <div className="flex flex-col lg:flex-col h-[100dvh] w-full lg:w-3/5 bg-secondary px-5 lg:pl-20 justify-center items-center">
         {/* topbar */}
         <div className="h-[10vh] flex items-center justify-center lg:justify-start w-full">
@@ -124,6 +132,7 @@ const SignIn = () => {
             </Link>
           </div>
         </div>
+
         <div className="absolute bottom-20 right-16 p-4 hidden  lg:flex lg:p-2 ">
           <Link to="/">
             <button className="btn border-primary btn-accent text-primary hover:text-accent hover:btn-primary h-12 text-xl">
@@ -135,6 +144,8 @@ const SignIn = () => {
           <img src={pageImage} className="lg:max-w-sm min-w-xs rounded-lg" />
         </div>
       </div>
+
+      <ToastContainer />
     </div>
   );
 };

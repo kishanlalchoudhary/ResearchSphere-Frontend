@@ -1,4 +1,7 @@
+// Imports
 import { Link } from "react-router-dom";
+
+// Assets
 import Img from "../../assets/appliedModal/appliedModal.png";
 
 const AppliedModal = () => {
@@ -18,7 +21,7 @@ const AppliedModal = () => {
         We have sent you portfolio to the professor , you can check the result
         from{" "}
         <Link to="/my-applications">
-          <u>My Application</u>
+          <u className="text-primary">My Application</u>
         </Link>{" "}
         .
       </p>

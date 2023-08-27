@@ -1,4 +1,5 @@
 import Post from "../../components/post/post";
+import PostApplicants from "../../components/postApplicants/postApplicants";
 
 const MyPosts = () => {
   return (
@@ -12,6 +13,7 @@ const MyPosts = () => {
       <Post />
       <Post />
       <Post />
+      <PostApplicants/>
     </div>
   );
 };

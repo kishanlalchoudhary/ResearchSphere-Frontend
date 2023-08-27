@@ -1,17 +1,33 @@
+// Imports
 import { Link } from "react-router-dom";
-import AppliedModal from "../appliedModal/appliedModal";
-import api from "../../api/axios";
 import PropTypes from "prop-types";
 
+// Apis
+import api from "../../api/axios";
+
+// Components
+import AppliedModal from "../appliedModal/appliedModal";
+import { toast } from "react-toastify";
+
 const ConfirmationalModal = ({ opportunityId }) => {
+  // Apply Handler
   const applyHandler = async () => {
     try {
       console.log(opportunityId);
       const response = await api.post(`/opportunities/${opportunityId}/apply`);
-      console.log(response.data.detail);
+      // console.log(response.data.detail);
+      toast.success(response.data.detail, {
+        theme: "colored",
+        closeOnClick: true,
+        pauseOnHover: true,
+      });
       window.my_modal_3.showModal();
     } catch (err) {
-      console.log(err.response.data.detail);
+      toast.error(err.response.data.detail, {
+        theme: "colored",
+        closeOnClick: true,
+        pauseOnHover: true,
+      });
     }
   };
 
@@ -38,7 +54,7 @@ const ConfirmationalModal = ({ opportunityId }) => {
         We will send you portfolio to the professor , you can check the result
         from{" "}
         <Link to="/my-applications">
-          <u>My Application</u>
+          <u className="text-primary">My Application</u>
         </Link>{" "}
         .
       </p>
@@ -47,7 +63,7 @@ const ConfirmationalModal = ({ opportunityId }) => {
 };
 
 ConfirmationalModal.propTypes = {
-  opportunityId: PropTypes.string.isRequired,
+  opportunityId: PropTypes.number.isRequired,
 };
 
 export default ConfirmationalModal;

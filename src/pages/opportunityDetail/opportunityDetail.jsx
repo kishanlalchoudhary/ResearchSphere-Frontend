@@ -1,25 +1,52 @@
+// Imports
 import { useParams } from "react-router-dom";
-import OpportunityLarge from "../../components/opportunityLarge/opportunityLarge";
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+
+// Apis
 import api from "../../api/axios";
 
-const OpportunityDetail = () => {
-  const { opportunityId } = useParams();
-  console.log(opportunityId);
-  const [opportunity, setOpportunity] = useState({});
+// Components
+import OpportunityLarge from "../../components/opportunityLarge/opportunityLarge";
 
+const OpportunityDetail = () => {
+  // Hooks
+  const { opportunityId } = useParams();
+  // console.log(opportunityId);
+
+  // States
+  const [opportunity, setOpportunity] = useState(null);
+
+  // get Opportunity Details
   const getOpportunity = async () => {
     try {
       const response = await api.get(`/opportunities/all/${opportunityId}/`);
       console.log(response.data);
       setOpportunity(response.data);
     } catch (err) {
-      console.log(err);
+      Object.keys(err.response.data).forEach((key) =>
+        // console.log(
+        // key[0].toUpperCase() +
+        //   key.substring(1) +
+        //   " : " +
+        //   err.response.data[key]
+        // )
+        toast.error(
+          key[0].toUpperCase() +
+            key.substring(1) +
+            " : " +
+            err.response.data[key],
+          {
+            theme: "colored",
+            closeOnClick: true,
+            pauseOnHover: true,
+          }
+        )
+      );
     }
   };
 
   useEffect(() => {
-    console.log("effect");
     getOpportunity();
   }, []);
 
@@ -70,7 +97,8 @@ const OpportunityDetail = () => {
 
   return (
     <div className="h-[90vh]">
-      <OpportunityLarge opportunity={opportunity} />
+      {opportunity && <OpportunityLarge opportunity={opportunity} />}
+      <ToastContainer />
     </div>
   );
 };

@@ -79,7 +79,7 @@ const OpportunitySmall = ({ opportunity }) => {
         </div>
       </div>
       <Link to={`/opportunity-detail/${opportunity.id}`}>
-        <button className="bg-primary text-white  font-semibold px-4 py-2 rounded-lg w-full">
+        <button className="btn bg-primary text-slate-100 hover:text-black font-semibold px-4 py-2 rounded-lg w-full">
           Read More
         </button>
       </Link>

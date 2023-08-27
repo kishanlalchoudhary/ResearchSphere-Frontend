@@ -1,24 +1,30 @@
+// Imports
 import MultiSelectInput from "../multiSelectInput/multiSelectInput";
-import api from "../../api/axios.js";
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+
+// Apis
+import api from "../../api/axios.js";
 
 const OpportunityForm = () => {
+  // States
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    start_date: "",
-    end_date: "",
-    domains: [],
-    skills: [],
+    start_date: new Date().toJSON().slice(0, 10).replace(/-/g, "-"),
+    end_date: new Date().toJSON().slice(0, 10).replace(/-/g, "-"),
+    domains: null,
+    skills: null,
   });
   const [domains, setDomains] = useState(null);
   const [skills, setSkills] = useState(null);
 
+  // Get Domains and Skills
   const getData = async () => {
     try {
       const domainData = await api.get("/domains/");
       const skillData = await api.get("/skills/");
-      console.log(domainData.data, skillData.data);
+      // console.log(domainData.data, skillData.data);
       setDomains(domainData.data);
       setSkills(skillData.data);
     } catch (err) {
@@ -30,12 +36,14 @@ const OpportunityForm = () => {
     getData();
   }, []);
 
+  // Input value Change Handler
   const handleChange = (e) => {
     console.log(e.target.name);
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     console.log(formData);
   };
 
+  // Setting Selected Domains
   const domainsHandler = (data) => {
     setFormData((prev) => ({
       ...prev,
@@ -45,6 +53,7 @@ const OpportunityForm = () => {
     }));
   };
 
+  // Setting Selected Skills
   const skillsHandler = (data) => {
     setFormData((prev) => ({
       ...prev,
@@ -54,15 +63,38 @@ const OpportunityForm = () => {
     }));
   };
 
+  // Opportunity Creation Handler
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       console.log(formData);
       const response = await api.post(`/opportunities/me/`, formData);
-      console.log("From backend");
       console.log(response.data);
+      toast.success("Opportunity Created/Posted Successfully", {
+        theme: "colored",
+        closeOnClick: true,
+        pauseOnHover: true,
+      });
     } catch (err) {
-      console.log(err);
+      Object.keys(err.response.data).forEach((key) =>
+        // console.log(
+        // key[0].toUpperCase() +
+        //   key.substring(1) +
+        //   " : " +
+        //   err.response.data[key][0]
+        // )
+        toast.error(
+          key[0].toUpperCase() +
+            key.substring(1) +
+            " : " +
+            err.response.data[key][0],
+          {
+            theme: "colored",
+            closeOnClick: true,
+            pauseOnHover: true,
+          }
+        )
+      );
     }
   };
 
@@ -139,6 +171,8 @@ const OpportunityForm = () => {
           </div>
         </div>
       </div>
+
+      <ToastContainer />
     </div>
   );
 };

@@ -16,10 +16,11 @@ import CreateOpportunity from "./pages/createOpportunity/createOpportunity";
 import OpportunityDetail from "./pages/opportunityDetail/opportunityDetail";
 import MyApplications from "./pages/myApplications/myApplications";
 import MyPosts from "./pages/myPosts/myPosts";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
-  // const token = Cookies.get("token");
-  const token = "test";
+  const token = Cookies.get("token");
+  // const token = "test";
 
   return (
     <Routes>
@@ -57,16 +58,8 @@ const App = () => {
         element={<EmailVerificationPending />}
       />
       <Route exact path="email-verification" element={<EmailVerification />} />
-      <Route
-        exact
-        path="/sign-in"
-        element={token ? <Navigate to="/explore" /> : <SignIn />}
-      />
-      <Route
-        exact
-        path="/sign-up"
-        element={token ? <Navigate to="/explore" /> : <SignUp />}
-      />
+      <Route exact path="/sign-in" element={<SignIn />} />
+      <Route exact path="/sign-up" element={<SignUp />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

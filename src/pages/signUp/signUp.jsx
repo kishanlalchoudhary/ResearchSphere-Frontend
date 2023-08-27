@@ -1,7 +1,13 @@
+// Imports
 import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import { useState } from "react";
+
+// Assets
 import Logo from "../../assets/logo.png";
 import pageImage from "../../assets/signUp/signUp.png";
-import { useState } from "react";
+
+// Apis
 import api from "../../api/axios";
 
 const SignUp = () => {
@@ -14,7 +20,9 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleEmailClick = async () => {
+  // Register handling
+  const handleEmailClick = async (e) => {
+    e.preventDefault();
     if (confirmPassword == password) {
       try {
         const request = {
@@ -27,11 +35,20 @@ const SignUp = () => {
         // navigate("../email-verification-pending");
       } catch (err) {
         Object.values(err.response.data).forEach((value) =>
-          console.log(value[0])
+          // console.log(value[0])
+          toast.error(value[0], {
+            theme: "colored",
+            closeOnClick: true,
+            pauseOnHover: true,
+          })
         );
       }
     } else {
-      console.log("Passwords Don't Match");
+      toast.error("Passwords Don't Match", {
+        theme: "colored",
+        closeOnClick: true,
+        pauseOnHover: true,
+      });
     }
   };
 
@@ -148,6 +165,8 @@ const SignUp = () => {
           </div>
         </div>
       </div>
+
+      <ToastContainer />
     </div>
   );
 };

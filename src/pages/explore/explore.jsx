@@ -1,19 +1,37 @@
-import Filter from "../../components/filter/filter";
-import api from "../../api/axios";
+// Imports
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+
+// Api
+import api from "../../api/axios";
+
+// Components
 import OpportunitySmall from "../../components/opportunitySmall/opportunitySmall";
+import Filter from "../../components/filter/filter";
 import PostOpportunity from "../../components/postOpportunity/postOpportunity";
 
 const Explore = () => {
+  // States
   const [opportunityList, setOpportunityList] = useState([]);
 
+  // Get Opportunity List
   const getOpportunityList = async () => {
     try {
       const response = await api.get("/opportunities/all/");
-      console.log(response.data);
+      // console.log(response.data);
+      toast.success("Opportunity List Fetched Successfully", {
+        theme: "colored",
+        closeOnClick: true,
+        pauseOnHover: true,
+      });
       setOpportunityList(response.data);
     } catch (err) {
-      console.log(err);
+      // console.log(err.message);
+      toast.err(err.message, {
+        theme: "colored",
+        closeOnClick: true,
+        pauseOnHover: true,
+      });
     }
   };
 
@@ -75,6 +93,7 @@ const Explore = () => {
           <OpportunitySmall key={opportunity.id} opportunity={opportunity} />
         ))}
       </div>
+      <ToastContainer />
     </div>
   );
 };
