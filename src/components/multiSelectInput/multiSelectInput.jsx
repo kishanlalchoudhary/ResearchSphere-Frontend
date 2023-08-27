@@ -1,12 +1,21 @@
+// Imports
 import { useEffect, useState } from "react";
 import CreatableSelect from "react-select/creatable";
 import PropTypes from "prop-types";
 
-const MultiSelectInput = ({ data, dataHandler }) => {
-  const [selectedOptions, setSelectedOptions] = useState([]);
+const MultiSelectInput = ({ data, dataHandler, selectedData, selectedDataHandler}) => {
+  // States
+  const [selectedOptions, setSelectedOptions] = useState(null);
   const [options, setOptions] = useState(null);
 
   useEffect(() => {
+    const SelectedObjects = [];
+    console.log(selectedData);
+    selectedData.map((obj) => {
+      SelectedObjects.push({ value: obj.name, label: obj.name });
+    });
+    console.log(SelectedObjects);
+    setSelectedOptions(SelectedObjects);
     const Objects = [];
     console.log(data);
     data.map((obj) => {
@@ -14,8 +23,9 @@ const MultiSelectInput = ({ data, dataHandler }) => {
     });
     console.log(Objects);
     setOptions(Objects);
-  }, [data]);
+  }, [data, selectedData]);
 
+  // New Option Handler
   const handleCreateOption = (inputValue) => {
     if (inputValue.trim() === "") return;
 
@@ -28,6 +38,7 @@ const MultiSelectInput = ({ data, dataHandler }) => {
     setSelectedOptions([...selectedOptions, newOption]);
   };
 
+  // Selected Options Handler
   const handleSelectChange = (selectedOptions) => {
     console.log(selectedOptions);
     setSelectedOptions(selectedOptions);
@@ -51,6 +62,7 @@ const MultiSelectInput = ({ data, dataHandler }) => {
 MultiSelectInput.propTypes = {
   data: PropTypes.array.isRequired,
   dataHandler: PropTypes.func.isRequired,
+  selectedData: PropTypes.array.isRequired,
 };
 
 export default MultiSelectInput;

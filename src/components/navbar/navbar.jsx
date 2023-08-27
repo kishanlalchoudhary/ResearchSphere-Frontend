@@ -3,6 +3,7 @@ import Logo from "../../assets/logo.png";
 import api from "../../api/axios";
 import Cookies from "js-cookie";
 import "./Navbar.css";
+import { useState } from "react";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -10,11 +11,12 @@ const Navbar = () => {
   const handleLogoutClick = () => {
     api.post("/api/auth/token/logout/");
     Cookies.remove("token");
+    setToken(null);
     navigate("/");
     window.location.reload(false);
   };
 
-  const token = Cookies.get("token");
+  const [token, setToken] = useState(Cookies.get("token"));
 
   return (
     <div className="navbar bg-white drop-shadow-md px-5 py-0 border-b-1 top-0 left-0 right-0 sticky z-40 h-[8vh]">
@@ -44,13 +46,13 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li>
-                <Link to="/my-applications" className="text-base font-bold">
-                  My Applications
+                <Link to="/my-posts" className="text-base font-bold">
+                  My Posts
                 </Link>
               </li>
               <li>
-                <Link to="/my-posts" className="text-base font-bold">
-                  My Posts
+                <Link to="/my-applications" className="text-base font-bold">
+                  My Applications
                 </Link>
               </li>
             </ul>

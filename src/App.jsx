@@ -16,6 +16,10 @@ import CreateOpportunity from "./pages/createOpportunity/createOpportunity";
 import OpportunityDetail from "./pages/opportunityDetail/opportunityDetail";
 import MyApplications from "./pages/myApplications/myApplications";
 import MyPosts from "./pages/myPosts/myPosts";
+import EditPost from "./pages/editPost/editPost";
+import PostApplicants from "./pages/postApplicants/postApplicants";
+
+// Toastify
 import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
@@ -45,6 +49,16 @@ const App = () => {
           exact
           path="my-posts"
           element={token ? <MyPosts /> : <Navigate to="/sign-in" />}
+        />
+        <Route
+          exact
+          path="post-edit/:postId"
+          element={token ? <EditPost /> : <Navigate to="/sign-in" />}
+        />
+        <Route
+          exact
+          path="post-applicants/:postId"
+          element={token ? <PostApplicants /> : <Navigate to="/sign-in" />}
         />
         <Route
           exact

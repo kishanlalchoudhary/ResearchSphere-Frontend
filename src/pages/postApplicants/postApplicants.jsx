@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { format } from "date-fns";
-import Applicants from "./applicant";
+import Applicants from "../../components/applicant/applicant";
 
 const PostApplicants = () => {
   // dummy request
@@ -49,7 +49,7 @@ const PostApplicants = () => {
           </p>
           <p className="text-lg mt-2 flex justify-start items-center">
             <div>
-              <b>Applicants :</b> 
+              <b>Applicants :</b>
             </div>
           </p>
           <div className="flex flex-col w-full gap-5">

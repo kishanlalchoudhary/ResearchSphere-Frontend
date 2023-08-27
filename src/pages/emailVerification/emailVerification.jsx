@@ -1,7 +1,10 @@
+// Imports
 import { Link } from "react-router-dom";
-import Logo from "../../assets/logo.png";
 
+// Assets
+import Logo from "../../assets/logo.png";
 import pageImage from "../../assets/emailVerification/emailVerification.png";
+
 const EmailVerification = () => {
   return (
     <div className="flex flex-col lg:flex-row min-h-screen">

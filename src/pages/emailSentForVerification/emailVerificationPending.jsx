@@ -1,5 +1,8 @@
-import Logo from "../../assets/logo.png";
+// Imports
 import { Link } from "react-router-dom";
+
+// Assets
+import Logo from "../../assets/logo.png";
 import pageImage from "../../assets/emailVerificationPending/emailVerificationPending.png";
 
 const EmailVerificationPending = () => {

@@ -1,10 +1,15 @@
+// Imports
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "../../assets/logo.png";
-import pageImage from "../../assets/signIn/signIn.png";
-import axios from "axios";
 import Cookies from "js-cookie";
 import { ToastContainer, toast } from "react-toastify";
+
+// Assets
+import Logo from "../../assets/logo.png";
+import pageImage from "../../assets/signIn/signIn.png";
+
+// Apis
+import axios from "axios";
 
 const SignIn = () => {
   // Hooks
@@ -14,6 +19,7 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // Login Handler
   const handleLogin = async (e) => {
     e.preventDefault();
     try {

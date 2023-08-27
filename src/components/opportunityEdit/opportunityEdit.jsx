@@ -2,29 +2,44 @@
 import MultiSelectInput from "../multiSelectInput/multiSelectInput";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { useParams } from "react-router-dom";
 
 // Apis
 import api from "../../api/axios.js";
 
-const OpportunityForm = () => {
+const OpportunityEdit = () => {
+  // Hooks
+  const { postId } = useParams();
+  // console.log(opportunityId);
+
   // States
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    start_date: new Date().toJSON().slice(0, 10).replace(/-/g, "-"),
-    end_date: new Date().toJSON().slice(0, 10).replace(/-/g, "-"),
-    domains: null,
-    skills: null,
+    start_date: "",
+    end_date: "",
+    domains: [],
+    skills: [],
   });
   const [domains, setDomains] = useState(null);
   const [skills, setSkills] = useState(null);
 
-  // Get Domains and Skills
+  // Get Post Data, Domains and Skills
   const getData = async () => {
     try {
+      const post = await api.get(`/opportunities/me/${postId}/`);
       const domainData = await api.get("/domains/");
       const skillData = await api.get("/skills/");
-      // console.log(domainData.data, skillData.data);
+      console.log(domainData.data, skillData.data, post.data);
+      setFormData((prev) => ({
+        ...prev,
+        title: post.data.title,
+        description: post.data.description,
+        start_date: post.data.start_date,
+        end_date: post.data.end_date,
+        domains: post.data.domains,
+        skills: post.data.skills,
+      }));
       setDomains(domainData.data);
       setSkills(skillData.data);
     } catch (err) {
@@ -63,22 +78,14 @@ const OpportunityForm = () => {
     }));
   };
 
-  // Opportunity Creation Handler
+  // Post Edit Handler
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       console.log(formData);
-      const response = await api.post(`/opportunities/me/`, formData);
+      const response = await api.put(`/opportunities/me/${postId}/`, formData);
       console.log(response.data);
-      setFormData({
-        title: "",
-        description: "",
-        start_date: new Date().toJSON().slice(0, 10).replace(/-/g, "-"),
-        end_date: new Date().toJSON().slice(0, 10).replace(/-/g, "-"),
-        domains: null,
-        skills: null,
-      });
-      toast.success("Opportunity Created/Posted Successfully", {
+      toast.success("Opportunity Updated Successfully", {
         theme: "colored",
         closeOnClick: true,
         pauseOnHover: true,
@@ -111,7 +118,7 @@ const OpportunityForm = () => {
       <div className="card bg-accent shadow-md w-full lg:w-3/6 rounded-lg">
         <div className="card-body p-5">
           <h2 className="card-title justify-center text-2xl lgtext-3xl font-bold">
-            Create Opportunity
+            Edit Opportunity
           </h2>
           <div className="form-control w-full">
             <div className="text-lg font-bold my-2">Title</div>
@@ -160,7 +167,7 @@ const OpportunityForm = () => {
                 <MultiSelectInput
                   data={domains ? domains : []}
                   dataHandler={domainsHandler}
-                  selectedData={formData.domains ? formData.domains : []}
+                  selectedData={formData.domains}
                 />
               </div>
               <div className="flex-1 ">
@@ -168,7 +175,7 @@ const OpportunityForm = () => {
                 <MultiSelectInput
                   data={skills ? skills : []}
                   dataHandler={skillsHandler}
-                  selectedData={formData.skills ? formData.skills : []}
+                  selectedData={formData.skills}
                 />
               </div>
             </div>
@@ -176,14 +183,14 @@ const OpportunityForm = () => {
               className="btn bg-blue-500 text-slate-100 mt-7"
               onClick={handleSubmit}
             >
-              Create
+              Save
             </button>
           </div>
         </div>
       </div>
-
       <ToastContainer />
     </div>
   );
 };
-export default OpportunityForm;
+
+export default OpportunityEdit;

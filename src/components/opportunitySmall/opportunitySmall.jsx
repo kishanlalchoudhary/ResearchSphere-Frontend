@@ -51,16 +51,18 @@ const OpportunitySmall = ({ opportunity }) => {
     <div className="p-6 border-2 border-secondary rounded-lg shadow-md bg-accent flex flex-col mx-4">
       <div className="flex justify-between sm:flex-row flex-col">
         <h2 className="text-2xl font-semibold">{opportunity.title}</h2>
-        <div className="flex gap-4 mt-5 sm:mt-0">
-          {opportunity.domains.map((domain) => (
-            <h3
-              key={domain.id}
-              className="text-md rounded-lg border border-primary px-2 py-1 font-semibold text-primary"
-            >
-              {domain.name}
-            </h3>
-          ))}
-        </div>
+        {opportunity.domains && (
+          <div className="flex gap-4 mt-5 sm:mt-0">
+            {opportunity.domains.map((domain) => (
+              <h3
+                key={domain.id}
+                className="text-md rounded-lg border border-primary px-2 py-1 font-semibold text-primary"
+              >
+                {domain.name}
+              </h3>
+            ))}
+          </div>
+        )}
       </div>
       <div className="px-2">
         <div className="text-lg my-5 flex flex-wrap justify-between gap-2 items-start">
