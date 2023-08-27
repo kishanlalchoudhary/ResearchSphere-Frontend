@@ -7,7 +7,7 @@ const ConfirmationalModal = ({ opportunityId }) => {
   const applyHandler = async () => {
     try {
       console.log(opportunityId);
-      const response = await api.get(`/opportunities/${opportunityId}/apply`);
+      const response = await api.post(`/opportunities/${opportunityId}/apply`);
       console.log(response.data.detail);
       window.my_modal_3.showModal();
     } catch (err) {

@@ -44,12 +44,12 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li>
-                <Link to="/my-applications" className="text-base">
+                <Link to="/my-applications" className="text-base font-bold">
                   My Applications
                 </Link>
               </li>
               <li>
-                <Link to="/my-posts" className="text-base">
+                <Link to="/my-posts" className="text-base font-bold">
                   My Posts
                 </Link>
               </li>
@@ -77,25 +77,25 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         {token && (
           <ul className="menu menu-horizontal px-1 p-0 space-x-8">
-            <li className="text-base">
+            <li className="text-base font-bold">
               <NavLink to="/">Home</NavLink>
             </li>
-            <li className="text-base">
+            <li className="text-base font-bold">
               <NavLink to="/explore">Explore</NavLink>
             </li>
             <li>
-              <NavLink to="/post-opportunity" className="text-base">
+              <NavLink to="/post-opportunity" className="text-base font-bold">
                 Post Opportunity
               </NavLink>
             </li>
             <li>
-              <NavLink to="/my-applications" className="text-base">
-                My Applications
+              <NavLink to="/my-posts" className="text-base font-bold">
+                My Posts
               </NavLink>
             </li>
             <li>
-              <NavLink to="/my-posts" className="text-base">
-                My Posts
+              <NavLink to="/my-applications" className="text-base font-bold">
+                My Applications
               </NavLink>
             </li>
           </ul>

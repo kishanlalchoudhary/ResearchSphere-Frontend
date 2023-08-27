@@ -43,7 +43,7 @@ const HomePage = () => {
 
       {/* why join us cards */}
       <div className="bg-secondary lg:px-20 py-10 px-7">
-        <h1 className="text-2xl lg:text-4xl text-center font-bold">
+        <h1 className="text-3xl lg:text-5xl text-center font-bold">
           Why Join Us ?
         </h1>
         <div className="flex flex-col lg:flex-row justify-around">
@@ -103,7 +103,7 @@ const HomePage = () => {
       {/* why join us cards ends here */}
       {/* how to use cards */}
       <div className="lg:pl-20 px-auto py-10">
-        <h1 className="text-2xl lg:text-4xl text-center font-bold">
+        <h1 className="text-3xl lg:text-5xl text-center font-bold">
           How to use the Platform ?{" "}
         </h1>
       </div>

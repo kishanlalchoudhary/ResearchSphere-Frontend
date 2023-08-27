@@ -68,7 +68,7 @@ const OpportunityForm = () => {
 
   return (
     <div className="flex justify-center px-4 py-8">
-      <div className="card bg-white shadow-xl border-2 w-full lg:w-3/6">
+      <div className="card bg-accent shadow-md w-full lg:w-3/6 rounded-lg">
         <div className="card-body p-5">
           <h2 className="card-title justify-center text-2xl lgtext-3xl font-bold">
             Create Opportunity
