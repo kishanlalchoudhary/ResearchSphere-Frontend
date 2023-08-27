@@ -63,7 +63,8 @@ const Application = () => {
   };
 
   return (
-    <div className="lg:m-4 lg:p-6 m-2 p-2 border border-secondary lg:w-[70vw] rounded-lg shadow-md bg-accent flex flex-col lg:flex-row justify-center">
+    <>
+    {/* <div className="lg:m-4 lg:p-6 m-2 p-2 border border-secondary lg:w-[70vw] rounded-lg shadow-md bg-accent flex flex-col lg:flex-row justify-center">
       <div className="flex flex-col w-full">
         <h2 className="text-2xl font-semibold w-4/5">
           {result.opportunity.title}
@@ -95,7 +96,48 @@ const Application = () => {
           </button>
         </div>
       </div>
+    </div> */}
+    
+    {/* FOR LG */}
+    <div className="hidden lg:flex card lg:w-[70vw] rounded-lg bg-white shadow-md my-5">
+      <div className="card-body p-4 px-6">
+        <div className="flex flex-row items-center justify-between mb-4">
+          <h2 className="text-2xl font-semibold">Title for opportunity goes here</h2>
+          <div className={`text-2xl ${textColorClass}`}>Pending</div>
+        </div>
+        <div className="flex flex-row items-center justify-between">
+          <div className="text-lg"><b>Applied at : </b>{formattedDate}</div>
+          <button className="px-5 h-7 hover:bg-red-600 text-red-600 border hover:text-accent rounded-lg text-lg border-red-600">Withdraw</button> 
+        </div>
+      </div>
     </div>
+
+    {/* FOR MOBILE */}
+    <div className="lg:hidden card lg:w-[70vw] rounded-lg bg-white shadow-md my-5">
+      <div className="card-body p-5">
+        <div className="flex justify-center mb-4">
+          <h2 className="text-2xl font-semibold">Opportunity title goes here </h2>
+        </div>
+        <div className="flex flex-row items-center justify-between mb-4">
+          <div className="w-1/2 text-lg">
+            <span class="material-symbols-outlined align-middle mr-2">
+              schedule
+            </span>
+            {formattedDate}
+          </div> 
+          <div className={`w-1/2 text-end text-xl ${textColorClass}`}>Pending</div>
+        </div>
+        <div className="flex justify-center">
+          <button className="px-5 h-8 w-full hover:bg-red-600 text-red-600 border hover:text-accent rounded-lg text-lg border-red-600">Withdraw</button> 
+        </div>
+      </div>
+    </div>
+
+
+
+
+    </>
+
   );
 };
 

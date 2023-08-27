@@ -3,6 +3,7 @@ import adv1 from "../../assets/HomePage/adv.png";
 import st1 from "../../assets/HomePage/stepone.png";
 import st2 from "../../assets/HomePage/steptwo.png";
 import st3 from "../../assets/HomePage/stepthree.png";
+import amico from "../../assets/HomePage/amico.svg"
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
@@ -12,8 +13,8 @@ const HomePage = () => {
       <div className="hero min-h-full bg-base-100 ">
         <div className="hero-content flex-col lg:flex-row-reverse py-10 lg:py-0">
           {/* hero image */}
-          <div className="lg:py-20 lg:px-20 px-10">
-            <img src={HeroPic} className="lg:max-w-md min-w-xs rounded-lg" />
+          <div className="lg:py-20 lg:px-30 px-10">
+            <img src={amico} className="lg:max-w-md min-w-xs ms-10 rounded-lg" />
           </div>
 
           {/* company slogan */}
@@ -173,6 +174,12 @@ const HomePage = () => {
         </div>
       </div>
       {/* how to use cards ends here */}
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 };
