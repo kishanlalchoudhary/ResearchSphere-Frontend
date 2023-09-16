@@ -10,7 +10,7 @@ import api from "../../api/axios.js";
 const OpportunityEdit = () => {
   // Hooks
   const { postId } = useParams();
-  // console.log(opportunityId);
+  // console.log(postId);
 
   // States
   const [formData, setFormData] = useState({

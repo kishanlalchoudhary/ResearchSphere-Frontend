@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import CreatableSelect from "react-select/creatable";
 import PropTypes from "prop-types";
 
-const MultiSelectInput = ({ data, dataHandler, selectedData, selectedDataHandler}) => {
+const MultiSelectInput = ({ data, dataHandler, selectedData }) => {
   // States
   const [selectedOptions, setSelectedOptions] = useState(null);
   const [options, setOptions] = useState(null);
@@ -41,8 +41,8 @@ const MultiSelectInput = ({ data, dataHandler, selectedData, selectedDataHandler
   // Selected Options Handler
   const handleSelectChange = (selectedOptions) => {
     console.log(selectedOptions);
-    setSelectedOptions(selectedOptions);
     dataHandler(selectedOptions);
+    setSelectedOptions(selectedOptions);
   };
 
   return (

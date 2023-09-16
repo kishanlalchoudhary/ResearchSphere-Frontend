@@ -24,7 +24,7 @@ const OpportunityForm = () => {
     try {
       const domainData = await api.get("/domains/");
       const skillData = await api.get("/skills/");
-      // console.log(domainData.data, skillData.data);
+      console.log(domainData.data, skillData.data);
       setDomains(domainData.data);
       setSkills(skillData.data);
     } catch (err) {
