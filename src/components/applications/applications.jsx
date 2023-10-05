@@ -1,6 +1,7 @@
-import api from "../../api/axios";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-const Application = ({ application }) => {
+const Application = ({ application, handleWithdraw }) => {
   let textColorClass = "";
 
   if (application.status == "Pending") {
@@ -11,24 +12,16 @@ const Application = ({ application }) => {
     textColorClass = "text-error";
   }
 
-  const handleWithdraw = async (app_id) => {
-    try {
-      const response = await api.post(`/myapplications/${app_id}/withdraw`);
-      console.log(response.data.detail);
-      window.location.reload(false);
-    } catch (err) {
-      console.log(err.response.data.detail);
-    }
-  };
-
   return (
     <>
       {/* FOR LG */}
       <div className="hidden md:flex card w-full rounded-lg bg-white shadow-md my-4">
         <div className="card-body p-4 px-6">
           <div className="flex flex-row items-center justify-between mb-2">
-            <h2 className="text-2xl font-semibold">
-              {application.opportunity_title}
+            <h2 className="text-2xl font-semibold text-primary underline underline-offset-4">
+              <Link to={`/opportunity-detail/${application.opportunity}`}>
+                {application.opportunity_title}
+              </Link>
             </h2>
             <div className={`text-2xl ${textColorClass} font-semibold`}>
               {application.status}
@@ -59,7 +52,7 @@ const Application = ({ application }) => {
           </div>
           <div className="flex flex-row items-center justify-between mb-4">
             <div className="w-1/2 text-lg">
-              <span class="material-symbols-outlined align-middle mr-2">
+              <span className="material-symbols-outlined align-middle mr-2">
                 schedule
               </span>
               {application.created_at.slice(0, 10)}
@@ -79,6 +72,11 @@ const Application = ({ application }) => {
       </div>
     </>
   );
+};
+
+Application.propTypes = {
+  application: PropTypes.object.isRequired,
+  handleWithdraw: PropTypes.func.isRequired,
 };
 
 export default Application;

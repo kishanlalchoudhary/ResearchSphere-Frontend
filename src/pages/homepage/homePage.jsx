@@ -1,10 +1,13 @@
-import HeroPic from "../../assets/HomePage/homepage.png";
+// Imports
+import { Link } from "react-router-dom";
+
+// Images
+// import HeroPic from "../../assets/HomePage/homepage.png";
 import adv1 from "../../assets/HomePage/adv.png";
 import st1 from "../../assets/HomePage/stepone.png";
 import st2 from "../../assets/HomePage/steptwo.png";
 import st3 from "../../assets/HomePage/stepthree.png";
-import amico from "../../assets/HomePage/amico.svg"
-import { Link } from "react-router-dom";
+import amico from "../../assets/HomePage/amico.svg";
 
 const HomePage = () => {
   return (
@@ -13,8 +16,11 @@ const HomePage = () => {
       <div className="hero min-h-full bg-base-100 ">
         <div className="hero-content flex-col lg:flex-row-reverse py-10 lg:py-0">
           {/* hero image */}
-          <div className="lg:py-20 lg:px-30 px-10">
-            <img src={amico} className="lg:max-w-md min-w-xs ms-10 rounded-lg" />
+          <div className="lg:py-20 lg:px-30 sm:px-0 px-10">
+            <img
+              src={amico}
+              className="lg:max-w-md min-w-xs xl:ms-10 rounded-lg"
+            />
           </div>
 
           {/* company slogan */}
@@ -116,7 +122,7 @@ const HomePage = () => {
             <img src={st1} className="lg:max-w-md min-w-xs rounded-lg" />
           </div>
 
-          <div className="lg:pr-40 sm:px-10">
+          <div className="2xl:pr-40 sm:px-10">
             <h1 className="text-2xl lg:text-4xl font-bold">
               Connect to platform and build your profile
             </h1>
@@ -138,7 +144,7 @@ const HomePage = () => {
             <img src={st2} className="lg:max-w-md min-w-xs rounded-lg" />
           </div>
 
-          <div className="lg:pr-40 sm:px-10">
+          <div className="xl:pr-40 sm:px-10">
             <h1 className="text-2xl lg:text-4xl font-bold">
               Explore the various opportunities{" "}
             </h1>
@@ -153,7 +159,7 @@ const HomePage = () => {
       </div>
 
       {/* step 3 */}
-      <div className="hero min-h-full bg-base-100 ">
+      <div className="hero min-h-full bg-base-100 mb-10">
         <div className="hero-content flex-col lg:flex-row-reverse ">
           {/* step three image */}
           <div className="lg:px-20 px-10">
@@ -173,13 +179,6 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      {/* how to use cards ends here */}
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
     </>
   );
 };

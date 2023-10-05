@@ -16,6 +16,16 @@ const MyApplications = () => {
     }
   };
 
+  const handleWithdraw = async (app_id) => {
+    try {
+      const response = await api.post(`/myapplications/${app_id}/withdraw`);
+      console.log(response.data.detail);
+      getApplications();
+    } catch (err) {
+      console.log(err.response.data.detail);
+    }
+  };
+
   useEffect(() => {
     getApplications();
   }, []);
@@ -27,7 +37,11 @@ const MyApplications = () => {
       </h2>
       <div className="mb-2 w-full sm:w-5/6 lg:w-4/6 ">
         {applicationsData.map((application) => (
-          <Application key={application.id} application={application} />
+          <Application
+            key={application.id}
+            application={application}
+            handleWithdraw={handleWithdraw}
+          />
         ))}
       </div>
     </div>

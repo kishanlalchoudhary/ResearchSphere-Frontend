@@ -3,10 +3,7 @@ import { format } from "date-fns";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-// Apis
-import api from "../../api/axios";
-
-const Post = ({ post }) => {
+const Post = ({ post, handleDelete }) => {
   // dummy request
   // opportunity = {
   //   id: 0,
@@ -35,17 +32,6 @@ const Post = ({ post }) => {
   const parsedDate = new Date(post.created_at);
   const formattedDate = format(parsedDate, "yyyy-MM-dd");
 
-  // Delete Post Handler
-  const handleDelete = async () => {
-    try {
-      const response = await api.delete(`/opportunities/me/${post.id}/`);
-      console.log(response.data);
-      window.location.reload();
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   return (
     <div className="p-3 sm:p-5 border border-secondary rounded-lg shadow-md bg-accent flex flex-col lg:flex-row justify-center w-full">
       <div className="flex flex-col w-full">
@@ -67,7 +53,7 @@ const Post = ({ post }) => {
               </button>
             </Link>
             <button
-              onClick={handleDelete}
+              onClick={() => handleDelete(post.id)}
               className="flex w-lg bg-accent hover:bg-red-600 text-red-600 border hover:text-accent  border-red-600 font-semibold px-6 py-2 rounded-lg"
             >
               Delete
@@ -81,6 +67,7 @@ const Post = ({ post }) => {
 
 Post.propTypes = {
   post: PropTypes.object.isRequired,
+  handleDelete: PropTypes.func.isRequired,
 };
 
 export default Post;

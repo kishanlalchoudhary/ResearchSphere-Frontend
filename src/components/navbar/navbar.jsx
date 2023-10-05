@@ -1,22 +1,31 @@
+// Imports
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import Logo from "../../assets/logo.png";
-import api from "../../api/axios";
-import Cookies from "js-cookie";
-import "./Navbar.css";
 import { useState } from "react";
+import Cookies from "js-cookie";
+
+// Apis
+import api from "../../api/axios";
+
+// Styles
+import "./Navbar.css";
+
+// Images
+import Logo from "../../assets/logo.png";
 
 const Navbar = () => {
+  // Hooks
   const navigate = useNavigate();
+
+  // States
+  const [token, setToken] = useState(Cookies.get("token"));
 
   const handleLogoutClick = () => {
     api.post("/api/auth/token/logout/");
     Cookies.remove("token");
     setToken(null);
     navigate("/");
-    window.location.reload(false);
+    window.location.reload();
   };
-
-  const [token, setToken] = useState(Cookies.get("token"));
 
   return (
     <div className="navbar bg-white drop-shadow-md px-5 py-0 border-b-1 top-0 left-0 right-0 sticky z-40 h-[8vh]">

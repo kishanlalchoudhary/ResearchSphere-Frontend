@@ -31,16 +31,27 @@ const MyPosts = () => {
     }
   };
 
+  // Delete Post Handler
+  const handleDelete = async (id) => {
+    try {
+      const response = await api.delete(`/opportunities/me/${id}/`);
+      console.log(response.data);
+      getPosts();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
     getPosts();
-  },[]);
+  }, []);
 
   return (
     <div className="flex flex-col h-[92vh] items-center pt-2 pb-6 overflow-scroll scrollbar-none">
       <h2 className="flex text-4xl font-bold text-primary my-4">My Posts</h2>
       <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 p-4 w-full lg:w-5/6 xl:4/6">
         {posts.map((post) => (
-          <Post key={post.id} post={post}/>
+          <Post key={post.id} post={post} handleDelete={handleDelete} />
         ))}
       </div>
       <ToastContainer />
