@@ -13,7 +13,7 @@ const Profile = ({ userName }) => {
   // States
   const [formData, setFormData] = useState({
     id: null,
-    role: "Other",
+    role: "",
     user_name: userName,
     about: "",
     contact_no: 0,
@@ -108,7 +108,7 @@ const Profile = ({ userName }) => {
           pauseOnHover: true,
         });
       }
-      window.location.reload();
+      getProfileData();
     } catch (err) {
       console.log(err);
       Object.keys(err.response.data).forEach((key) =>
@@ -155,16 +155,11 @@ const Profile = ({ userName }) => {
               </div>
               <div className="flex-1">
                 <div className="text-lg font-bold my-2">Role</div>
-                <input
-                  type="text"
-                  name="user_role"
+                <select
+                  className="select select-bordered w-full"
+                  onChange={handleChange}
                   value={formData.role}
-                  onChange={handleChange}
-                  className="input input-bordered w-full"
-                />
-                {/* <select
-                  className="select select-bordered w-full max-w-xs"
-                  onChange={handleChange}
+                  name="role"
                 >
                   <option disabled selected>
                     Select a role
@@ -172,7 +167,7 @@ const Profile = ({ userName }) => {
                   <option>Student</option>
                   <option>Professor</option>
                   <option>Other</option>
-                </select> */}
+                </select>
               </div>
             </div>
             <div className="flex lg:flex-row flex-col mt-2 lg:space-x-6">

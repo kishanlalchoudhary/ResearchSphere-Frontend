@@ -7,7 +7,7 @@ import Cookies from "js-cookie";
 import api from "../../api/axios";
 
 // Styles
-import "./Navbar.css";
+import "./navbar.css";
 
 // Images
 import Logo from "../../assets/logo.png";
