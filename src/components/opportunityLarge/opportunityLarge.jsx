@@ -1,5 +1,6 @@
 // Imports
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 // Components
 import ConfirmationalModal from "../confirmationalModal/confirmationalModal";
@@ -78,9 +79,13 @@ const OpportunityLarge = ({ opportunity }) => {
               <b>End Date : </b>
               {opportunity.end_date}
             </div>
-            <div>
-              <b>Created by : </b>
-              {opportunity.created_by}
+            <div className="flex">
+              <b>Created by : &nbsp;</b>
+              <Link to={`/profile-details/${opportunity.created_by_id}`}>
+                <p className="underline text-primary">
+                  {opportunity.created_by}
+                </p>
+              </Link>
             </div>
           </div>
         </div>

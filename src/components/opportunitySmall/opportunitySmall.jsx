@@ -11,6 +11,7 @@ const OpportunitySmall = ({ opportunity }) => {
   //   end_date: "2023-08-23",
   //   created_at: "2023-08-23T21:07:14.000Z",
   //   created_by: "Prof. Abhishek Bhosale",
+  //   created_by_id: 1,
   //   opportunity_type: "string",
   //   domains: [
   //     {
@@ -74,9 +75,11 @@ const OpportunitySmall = ({ opportunity }) => {
             <b>End Date : </b>
             {opportunity.end_date}
           </div>
-          <div>
-            <b>Created by : </b>
-            {opportunity.created_by}
+          <div className="flex">
+            <b>Created by : &nbsp;</b>
+            <Link to={`/profile-details/${opportunity.created_by_id}`}>
+              <p className="underline text-primary">{opportunity.created_by}</p>
+            </Link>
           </div>
         </div>
       </div>

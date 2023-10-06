@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 // Api
 import api from "../../api/axios";
+import { Link } from "react-router-dom";
 
 const Applicants = ({ postId }) => {
   // States
@@ -124,7 +125,14 @@ const Applicants = ({ postId }) => {
           className="flex flex-col gap-3 sm:gap-4 sm:flex-row justify-between"
         >
           <div className="flex flex-col sm:flex-row gap-1 sm:gap-6 w-full">
-            <div className="font-semibold">{application.applicant.name}</div>
+            <div className="font-semibold">
+              <Link
+                to={`/profile-details/${application.applicant.id}`}
+                className="text-primary underline"
+              >
+                {application.applicant.name}
+              </Link>
+            </div>
             <div className="font-semibold">{application.applicant.email}</div>
           </div>
           <div className="flex gap-2 justify-center items-center">

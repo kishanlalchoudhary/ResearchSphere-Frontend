@@ -64,6 +64,11 @@ const Navbar = () => {
                   My Applications
                 </Link>
               </li>
+              <li>
+                <Link to="/my-profile" className="text-base font-bold">
+                  My Profile
+                </Link>
+              </li>
             </ul>
           </details>
         )}
@@ -107,6 +112,11 @@ const Navbar = () => {
             <li>
               <NavLink to="/my-applications" className="text-base font-bold">
                 My Applications
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/my-profile" className="text-base font-bold">
+                My Profile
               </NavLink>
             </li>
           </ul>

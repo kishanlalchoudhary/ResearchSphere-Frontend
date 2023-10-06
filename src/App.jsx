@@ -18,6 +18,8 @@ import MyApplications from "./pages/myApplications/myApplications";
 import MyPosts from "./pages/myPosts/myPosts";
 import EditPost from "./pages/editPost/editPost";
 import PostApplicants from "./pages/postApplicants/postApplicants";
+import MyProfile from "./pages/myProfile/myProfile";
+import ProfileDetails from "./pages/profileDetails/profileDetails";
 
 // Toastify
 import "react-toastify/dist/ReactToastify.css";
@@ -49,6 +51,16 @@ const App = () => {
           exact
           path="my-posts"
           element={token ? <MyPosts /> : <Navigate to="/sign-in" />}
+        />
+        <Route
+          exact
+          path="my-profile"
+          element={token ? <MyProfile /> : <Navigate to="/sign-in" />}
+        />
+        <Route
+          exact
+          path="profile-details/:userId"
+          element={token ? <ProfileDetails /> : <Navigate to="/sign-in" />}
         />
         <Route
           exact
