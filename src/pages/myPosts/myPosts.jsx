@@ -15,11 +15,11 @@ const MyPosts = () => {
     try {
       const response = await api.get("/opportunities/me/");
       // console.log(response.data);
-      toast.success("Posts Fetched Successfully", {
-        theme: "colored",
-        closeOnClick: true,
-        pauseOnHover: true,
-      });
+      // toast.success("Posts Fetched Successfully", {
+      //   theme: "colored",
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      // });
       setPosts(response.data);
     } catch (err) {
       // console.log(err.message);
@@ -35,7 +35,12 @@ const MyPosts = () => {
   const handleDelete = async (id) => {
     try {
       const response = await api.delete(`/opportunities/me/${id}/`);
-      console.log(response.data);
+      toast.success("Opportunity Deleted Successfully", {
+        theme: "colored",
+        closeOnClick: true,
+        pauseOnHover: true,
+      });
+      // console.log(response.data);
       getPosts();
     } catch (err) {
       console.log(err);

@@ -1,3 +1,4 @@
+// Imports
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
@@ -65,18 +66,18 @@ const OpportunitySmall = ({ opportunity }) => {
           </div>
         )}
       </div>
-      <div className="px-2">
+      <div className="px-1">
         <div className="text-lg my-5 flex flex-wrap justify-between gap-2 items-start">
           <div>
-            <b>Start Date : </b>
+            <b>Start Date :&nbsp;</b>
             {opportunity.start_date}
           </div>
           <div>
-            <b>End Date : </b>
+            <b>End Date :&nbsp;</b>
             {opportunity.end_date}
           </div>
           <div className="flex">
-            <b>Created by : &nbsp;</b>
+            <b>Created by :&nbsp;</b>
             <Link to={`/profile-details/${opportunity.created_by_id}`}>
               <p className="underline text-primary">{opportunity.created_by}</p>
             </Link>

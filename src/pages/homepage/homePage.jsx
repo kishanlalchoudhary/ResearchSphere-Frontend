@@ -12,7 +12,7 @@ import amico from "../../assets/HomePage/amico.svg";
 const HomePage = () => {
   return (
     <>
-      {/* page her */}
+      {/* page here */}
       <div className="hero min-h-full bg-base-100 ">
         <div className="hero-content flex-col lg:flex-row-reverse py-10 lg:py-0">
           {/* hero image */}
@@ -126,7 +126,7 @@ const HomePage = () => {
             <h1 className="text-2xl lg:text-4xl font-bold">
               Connect to platform and build your profile
             </h1>
-            <p className="py-6">
+            <p className="py-6 break-words text-justify">
               We are a US-based software company that has been around for the
               past 7 years and provides software servWe are a US-based software
               company that has been around for the past 7 years and provides
@@ -148,7 +148,7 @@ const HomePage = () => {
             <h1 className="text-2xl lg:text-4xl font-bold">
               Explore the various opportunities{" "}
             </h1>
-            <p className="py-6">
+            <p className="py-6 break-words text-justify">
               We are a US-based software company that has been around for the
               past 7 years and provides software servWe are a US-based software
               company that has been around for the past 7 years and provides
@@ -170,11 +170,11 @@ const HomePage = () => {
             <h1 className="text-2xl lg:text-4xl font-bold">
               Join the Research opportunity
             </h1>
-            <p className="py-6">
+            <p className="py-6 break-words text-justify">
               We are a US-based software company that has been around for the
               past 7 years and provides software servWe are a US-based software
               company that has been around for the past 7 years and provides
-              software serv
+              software service
             </p>
           </div>
         </div>

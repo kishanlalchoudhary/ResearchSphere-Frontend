@@ -10,18 +10,18 @@ const MultiSelectInput = ({ data, dataHandler, selectedData }) => {
 
   useEffect(() => {
     const SelectedObjects = [];
-    console.log(selectedData);
+    // console.log(selectedData);
     selectedData.map((obj) => {
       SelectedObjects.push({ value: obj.name, label: obj.name });
     });
-    console.log(SelectedObjects);
+    // console.log(SelectedObjects);
     setSelectedOptions(SelectedObjects);
     const Objects = [];
-    console.log(data);
+    // console.log(data);
     data.map((obj) => {
       Objects.push({ value: obj.name, label: obj.name });
     });
-    console.log(Objects);
+    // console.log(Objects);
     setOptions(Objects);
   }, [data, selectedData]);
 
@@ -40,7 +40,7 @@ const MultiSelectInput = ({ data, dataHandler, selectedData }) => {
 
   // Selected Options Handler
   const handleSelectChange = (selectedOptions) => {
-    console.log(selectedOptions);
+    // console.log(selectedOptions);
     dataHandler(selectedOptions);
     setSelectedOptions(selectedOptions);
   };

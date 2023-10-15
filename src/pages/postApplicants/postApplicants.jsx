@@ -13,7 +13,7 @@ import Applicants from "../../components/applicants/applicants";
 const PostApplicants = () => {
   // Hooks
   const { postId } = useParams();
-  console.log(postId);
+  // console.log(postId);
 
   // States
   const [opportunity, setOpportunity] = useState({});
@@ -23,11 +23,11 @@ const PostApplicants = () => {
     try {
       const response = await api.get(`/opportunities/all/${postId}/`);
       // console.log(response.data);
-      toast.success("Opportunity Fetched Successfully", {
-        theme: "colored",
-        closeOnClick: true,
-        pauseOnHover: true,
-      });
+      // toast.success("Opportunity Fetched Successfully", {
+      //   theme: "colored",
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      // });
       setOpportunity(response.data);
     } catch (err) {
       // console.log(err.message);
@@ -75,7 +75,7 @@ const PostApplicants = () => {
 
   return (
     <div className="lg:flex lg:items-center lg:justify-center ">
-      <div className="my-10 mx-5 p-4 lg:p-6 border border-secondary rounded-lg shadow-md bg-accent flex flex-col w-6/6 lg:w-4/6 ">
+      <div className="my-10 mx-5 p-4 lg:p-6 border border-secondary rounded-lg shadow-md bg-accent flex flex-col w-6/6 lg:w-3/6 ">
         <div className="flex justify-between sm:flex-row flex-col">
           <h2 className="text-2xl font-semibold">{opportunity.title}</h2>
           <div className="flex gap-4 mt-5 sm:mt-0">

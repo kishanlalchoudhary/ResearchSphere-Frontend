@@ -33,10 +33,10 @@ const Profile = ({ userName }) => {
       const profile = await api.get(`/profile/me/`);
       const domainData = await api.get("/domains/");
       const skillData = await api.get("/skills/");
-      console.log(domainData.data, skillData.data, profile.data);
+      // console.log(domainData.data, skillData.data, profile.data);
       setDomains(domainData.data);
       setSkills(skillData.data);
-      console.log(profile.data);
+      // console.log(profile.data);
       if (profile.data.length != 0) {
         setFormData((prev) => ({
           ...prev,
@@ -71,7 +71,9 @@ const Profile = ({ userName }) => {
     setFormData((prev) => ({
       ...prev,
       domains: data.map((domain) => {
-        return { name: domain.value };
+        return {
+          name: domain.value.charAt(0).toUpperCase() + domain.value.slice(1),
+        };
       }),
     }));
   };
@@ -81,7 +83,9 @@ const Profile = ({ userName }) => {
     setFormData((prev) => ({
       ...prev,
       skills: data.map((skill) => {
-        return { name: skill.value };
+        return {
+          name: skill.value.charAt(0).toUpperCase() + skill.value.slice(1),
+        };
       }),
     }));
   };
@@ -90,10 +94,10 @@ const Profile = ({ userName }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log(formData);
+      // console.log(formData);
       if (flag) {
         const response = await api.put(`/profile/me/${formData.id}/`, formData);
-        console.log(response.data);
+        // console.log(response.data);
         toast.success("Profile Updated Successfully", {
           theme: "colored",
           closeOnClick: true,
@@ -101,7 +105,7 @@ const Profile = ({ userName }) => {
         });
       } else {
         const response = await api.post(`/profile/me/`, formData);
-        console.log(response.data);
+        // console.log(response.data);
         toast.success("Profile Created Successfully", {
           theme: "colored",
           closeOnClick: true,
@@ -161,9 +165,6 @@ const Profile = ({ userName }) => {
                   value={formData.role}
                   name="role"
                 >
-                  <option disabled selected>
-                    Select a role
-                  </option>
                   <option>Student</option>
                   <option>Professor</option>
                   <option>Other</option>

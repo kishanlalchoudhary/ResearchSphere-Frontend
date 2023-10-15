@@ -14,7 +14,7 @@ const MyProfile = () => {
   // Get User Data
   const getUserData = async () => {
     try {
-      const user = await api.get(`/auth/users/`);
+      const user = await api.get(`/auth/users`);
       setUserName(user.data[0].name);
     } catch (err) {
       console.log(err);

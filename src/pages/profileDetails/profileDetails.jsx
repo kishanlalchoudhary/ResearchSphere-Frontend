@@ -9,7 +9,7 @@ import api from "../../api/axios";
 const ProfileDetails = () => {
   // Hooks
   const { userId } = useParams();
-  console.log(userId);
+  // console.log(userId);
 
   // States
   const [profile, setProfile] = useState({});
@@ -18,12 +18,12 @@ const ProfileDetails = () => {
   const getProfileData = async () => {
     try {
       const response = await api.get(`/profile/${userId}`);
-      console.log(response.data);
-      toast.success("Profile Fetched Successfully", {
-        theme: "colored",
-        closeOnClick: true,
-        pauseOnHover: true,
-      });
+      // console.log(response.data);
+      // toast.success("Profile Fetched Successfully", {
+      //   theme: "colored",
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      // });
       setProfile(response.data);
     } catch (err) {
       // console.log(err.message);
@@ -94,7 +94,7 @@ const ProfileDetails = () => {
             ))}
         </div>
         <Link to={-1}>
-          <button className="bg-primary text-white font-semibold px-4 py-2 rounded-lg w-full">
+          <button className="bg-primary text-white font-semibold px-4 py-3 rounded-lg w-full">
             Back
           </button>
         </Link>

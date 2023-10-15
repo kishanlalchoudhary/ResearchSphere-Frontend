@@ -13,7 +13,7 @@ const ConfirmationalModal = ({ opportunityId }) => {
   // Apply Handler
   const applyHandler = async () => {
     try {
-      console.log(opportunityId);
+      // console.log(opportunityId);
       const response = await api.post(`/opportunities/${opportunityId}/apply`);
       // console.log(response.data.detail);
       toast.success(response.data.detail, {
@@ -51,12 +51,12 @@ const ConfirmationalModal = ({ opportunityId }) => {
         </form>
       </dialog>
       <p className="text-sm">
-        We will send you portfolio to the professor , you can check the result
-        from{" "}
+        We will forward your application to them, you can check the status
+        on&nbsp;
         <Link to="/my-applications">
           <u className="text-primary">My Application</u>
         </Link>{" "}
-        .
+        page.
       </p>
     </div>
   );

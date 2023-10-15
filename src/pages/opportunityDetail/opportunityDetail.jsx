@@ -21,7 +21,7 @@ const OpportunityDetail = () => {
   const getOpportunity = async () => {
     try {
       const response = await api.get(`/opportunities/all/${opportunityId}/`);
-      console.log(response.data);
+      // console.log(response.data);
       setOpportunity(response.data);
     } catch (err) {
       Object.keys(err.response.data).forEach((key) =>

@@ -30,7 +30,7 @@ const OpportunityEdit = () => {
       const post = await api.get(`/opportunities/me/${postId}/`);
       const domainData = await api.get("/domains/");
       const skillData = await api.get("/skills/");
-      console.log(domainData.data, skillData.data, post.data);
+      // console.log(domainData.data, skillData.data, post.data);
       setFormData((prev) => ({
         ...prev,
         title: post.data.title,
@@ -53,9 +53,9 @@ const OpportunityEdit = () => {
 
   // Input value Change Handler
   const handleChange = (e) => {
-    console.log(e.target.name);
+    // console.log(e.target.name);
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    console.log(formData);
+    // console.log(formData);
   };
 
   // Setting Selected Domains
@@ -63,7 +63,9 @@ const OpportunityEdit = () => {
     setFormData((prev) => ({
       ...prev,
       domains: data.map((domain) => {
-        return { name: domain.value };
+        return {
+          name: domain.value.charAt(0).toUpperCase() + domain.value.slice(1),
+        };
       }),
     }));
   };
@@ -73,7 +75,9 @@ const OpportunityEdit = () => {
     setFormData((prev) => ({
       ...prev,
       skills: data.map((skill) => {
-        return { name: skill.value };
+        return {
+          name: skill.value.charAt(0).toUpperCase() + skill.value.slice(1),
+        };
       }),
     }));
   };
@@ -82,9 +86,9 @@ const OpportunityEdit = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log(formData);
+      // console.log(formData);
       const response = await api.put(`/opportunities/me/${postId}/`, formData);
-      console.log(response.data);
+      // console.log(response.data);
       toast.success("Opportunity Updated Successfully", {
         theme: "colored",
         closeOnClick: true,

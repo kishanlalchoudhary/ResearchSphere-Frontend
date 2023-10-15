@@ -18,12 +18,12 @@ const AppliedModal = () => {
         <img src={Img} className="max-w-xs w-48 mb-6" />
       </div>
       <p className="text-sm pl-2 mt-6 text-justify">
-        We have sent you portfolio to the professor , you can check the result
-        from{" "}
+        We have forwarded your application to them, you can check the status
+        on&nbsp;
         <Link to="/my-applications">
           <u className="text-primary">My Application</u>
         </Link>{" "}
-        .
+        page.
       </p>
     </div>
   );

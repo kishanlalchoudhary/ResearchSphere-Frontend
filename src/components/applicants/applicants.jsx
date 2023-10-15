@@ -18,11 +18,11 @@ const Applicants = ({ postId }) => {
         `/opportunities/me/${postId}/applications`
       );
       // console.log(response.data);
-      toast.success("Application List Fetched Successfully", {
-        theme: "colored",
-        closeOnClick: true,
-        pauseOnHover: true,
-      });
+      // toast.success("Application List Fetched Successfully", {
+      //   theme: "colored",
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      // });
       setApplicationList(response.data);
     } catch (err) {
       // console.log(err.message);
@@ -84,8 +84,8 @@ const Applicants = ({ postId }) => {
       const response = await api.post(
         `/opportunities/me/applications/${applicationId}/accept`
       );
-      console.log(response.data);
-      toast.info("Application Accepted Successfully", {
+      // console.log(response.data);
+      toast.success("Application Accepted Successfully", {
         theme: "colored",
         closeOnClick: true,
         pauseOnHover: true,
@@ -102,8 +102,8 @@ const Applicants = ({ postId }) => {
       const response = await api.post(
         `/opportunities/me/applications/${applicationId}/reject`
       );
-      console.log(response.data);
-      toast.info("Application Rejected Successfully", {
+      // console.log(response.data);
+      toast.success("Application Rejected Successfully", {
         theme: "colored",
         closeOnClick: true,
         pauseOnHover: true,

@@ -19,16 +19,16 @@ const EmailVerification = () => {
           </Link>
         </div>
       </div>
-      <div className="w-full lg:w-2/3  bg-accent lg:px-20 px-10">
-        <div className="pt-20 lg:pt-20">
-          <div className="lg:p-12">
+      <div className="w-full xs:text-center lg:w-2/3 bg-accent lg:px-20 px-10">
+        <div className="pt-10 lg:pt-20">
+          <div className="lg:p-12 text-center lg:text-left">
             <h1 className="lg:text-4xl text-2xl font-bold">
               Email Verification link{" "}
             </h1>
             <h1 className="lg:text-2xl text-xl font-bold pt-5">
               Click the button below to verify the account
             </h1>
-            <div className="p-16 lg:p-5 flex justify-center lg:justify-start items-center">
+            <div className="py-8 lg:py-5 flex justify-center lg:justify-start items-center">
               <button
                 onClick="#"
                 className="btn btn-primary text-accent h-12 lg:h-14 text-2xl px-10 lg:px-10"

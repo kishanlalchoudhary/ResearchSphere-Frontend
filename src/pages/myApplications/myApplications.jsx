@@ -1,7 +1,12 @@
-import { useEffect } from "react";
-import Application from "../../components/applications/applications";
+// Imports
+import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+
+// Api's
 import api from "../../api/axios";
-import { useState } from "react";
+
+// Components
+import Application from "../../components/applications/applications";
 
 const MyApplications = () => {
   const [applicationsData, setApplicationsData] = useState([]);
@@ -9,7 +14,7 @@ const MyApplications = () => {
   const getApplications = async () => {
     try {
       const response = await api.get("/myapplications/");
-      console.log(response.data);
+      // console.log(response.data);
       setApplicationsData(response.data);
     } catch (err) {
       console.log(err);
@@ -19,7 +24,12 @@ const MyApplications = () => {
   const handleWithdraw = async (app_id) => {
     try {
       const response = await api.post(`/myapplications/${app_id}/withdraw`);
-      console.log(response.data.detail);
+      // console.log(response.data.detail);
+      toast.success("Application Withdrawn Successfully", {
+        theme: "colored",
+        closeOnClick: true,
+        pauseOnHover: true,
+      });
       getApplications();
     } catch (err) {
       console.log(err.response.data.detail);
@@ -35,7 +45,7 @@ const MyApplications = () => {
       <h2 className="flex text-4xl font-bold text-primary my-4">
         My Applications
       </h2>
-      <div className="mb-2 w-full sm:w-5/6 lg:w-4/6 ">
+      <div className="mb-2 w-full sm:w-5/6 lg:w-3/6 ">
         {applicationsData.map((application) => (
           <Application
             key={application.id}
@@ -44,6 +54,7 @@ const MyApplications = () => {
           />
         ))}
       </div>
+      <ToastContainer />
     </div>
   );
 };

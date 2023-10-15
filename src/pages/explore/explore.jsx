@@ -19,19 +19,19 @@ const Explore = () => {
     try {
       const response = await api.get("/opportunities/all/");
       // console.log(response.data);
-      toast.success("Opportunity List Fetched Successfully", {
-        theme: "colored",
-        closeOnClick: true,
-        pauseOnHover: true,
-      });
+      // toast.success("Opportunity List Fetched Successfully", {
+      //   theme: "colored",
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      // });
       setOpportunityList(response.data);
     } catch (err) {
       // console.log(err.message);
-      toast.err(err.message, {
-        theme: "colored",
-        closeOnClick: true,
-        pauseOnHover: true,
-      });
+      // toast.err(err.message, {
+      //   theme: "colored",
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      // });
     }
   };
 

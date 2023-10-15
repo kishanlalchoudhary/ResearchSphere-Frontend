@@ -72,15 +72,15 @@ const OpportunityLarge = ({ opportunity }) => {
         <div className="px-1">
           <div className="text-lg my-5 flex flex-wrap justify-between gap-2 items-start">
             <div>
-              <b>Start Date : </b>
+              <b>Start Date :&nbsp;</b>
               {opportunity.start_date}
             </div>
             <div>
-              <b>End Date : </b>
+              <b>End Date :&nbsp;</b>
               {opportunity.end_date}
             </div>
             <div className="flex">
-              <b>Created by : &nbsp;</b>
+              <b>Created by :&nbsp;</b>
               <Link to={`/profile-details/${opportunity.created_by_id}`}>
                 <p className="underline text-primary">
                   {opportunity.created_by}
@@ -98,7 +98,7 @@ const OpportunityLarge = ({ opportunity }) => {
         </div>
 
         <div className="flex flex-wrap justify-start items-center text-lg gap-4 my-5 sm:mt-0 px-1">
-          <b>Skills : </b>
+          <b>Skills</b>
           {opportunity.skills?.map((skill, index) => (
             <h3
               key={index}
@@ -112,7 +112,7 @@ const OpportunityLarge = ({ opportunity }) => {
         <div className="flex justify-center">
           <button
             onClick={() => window.my_modal_2.showModal()}
-            className="bg-primary text-white font-semibold px-4 py-2 rounded-lg w-full"
+            className="bg-primary text-white font-semibold px-4 py-3 rounded-lg w-full"
           >
             APPLY NOW
           </button>

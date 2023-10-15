@@ -24,7 +24,7 @@ const OpportunityForm = () => {
     try {
       const domainData = await api.get("/domains/");
       const skillData = await api.get("/skills/");
-      console.log(domainData.data, skillData.data);
+      // console.log(domainData.data, skillData.data);
       setDomains(domainData.data);
       setSkills(skillData.data);
     } catch (err) {
@@ -38,9 +38,9 @@ const OpportunityForm = () => {
 
   // Input value Change Handler
   const handleChange = (e) => {
-    console.log(e.target.name);
+    // console.log(e.target.name);
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    console.log(formData);
+    // console.log(formData);
   };
 
   // Setting Selected Domains
@@ -48,7 +48,9 @@ const OpportunityForm = () => {
     setFormData((prev) => ({
       ...prev,
       domains: data.map((domain) => {
-        return { name: domain.value };
+        return {
+          name: domain.value.charAt(0).toUpperCase() + domain.value.slice(1),
+        };
       }),
     }));
   };
@@ -58,7 +60,9 @@ const OpportunityForm = () => {
     setFormData((prev) => ({
       ...prev,
       skills: data.map((skill) => {
-        return { name: skill.value };
+        return {
+          name: skill.value.charAt(0).toUpperCase() + skill.value.slice(1),
+        };
       }),
     }));
   };
@@ -67,9 +71,9 @@ const OpportunityForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log(formData);
+      // console.log(formData);
       const response = await api.post(`/opportunities/me/`, formData);
-      console.log(response.data);
+      // console.log(response.data);
       setFormData({
         title: "",
         description: "",

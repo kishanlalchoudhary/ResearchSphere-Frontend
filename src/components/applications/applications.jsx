@@ -33,7 +33,7 @@ const Application = ({ application, handleWithdraw }) => {
               {application.created_at.slice(0, 10)}
             </div>
             <button
-              className="px-5 py-1 hover:bg-red-600 text-red-600 border hover:text-accent rounded-lg text-lg border-red-600 font-semibold"
+              className="px-5 py-1 bg-red-500 hover:bg-white hover:text-red-500 border text-accent rounded-lg text-lg hover:border-red-500 font-semibold"
               onClick={() => handleWithdraw(application.id)}
             >
               Withdraw
@@ -64,7 +64,10 @@ const Application = ({ application, handleWithdraw }) => {
             </div>
           </div>
           <div className="flex justify-center">
-            <button className="px-5 py-1 font-semibold w-full hover:bg-red-600 text-red-600 border hover:text-accent rounded-lg text-lg border-red-600">
+            <button
+              className="px-5 py-2 font-semibold w-full bg-red-500 hover:bg-white hover:text-red-500 border text-accent rounded-lg text-lg hover:border-red-500"
+              onClick={() => handleWithdraw(application.id)}
+            >
               Withdraw
             </button>
           </div>

@@ -32,7 +32,7 @@ const Navbar = () => {
       <div className="navbar-start">
         {token && (
           <details className="dropdown">
-            <summary tabIndex={0} className="btn btn-ghost px-0 lg:hidden">
+            <summary tabIndex={0} className="btn btn-ghost px-0 xl:hidden">
               <span className="material-symbols-outlined text-3xl">menu</span>
             </summary>
             <ul
@@ -69,10 +69,15 @@ const Navbar = () => {
                   My Profile
                 </Link>
               </li>
+              <li>
+                <NavLink to="/feedback" className="text-base font-bold">
+                  Feedback
+                </NavLink>
+              </li>
             </ul>
           </details>
         )}
-        <div className="hidden lg:flex flex-row items-center">
+        <div className="hidden xl:flex flex-row items-center">
           <img src={Logo} className="w-9 h-9 mb-2" />
           <Link
             to="/"
@@ -92,7 +97,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         {token && (
-          <ul className="menu menu-horizontal px-1 p-0 space-x-8">
+          <ul className="menu menu-horizontal px-1 p-0 space-x-4">
             <li className="text-base font-bold">
               <NavLink to="/">Home</NavLink>
             </li>
@@ -117,6 +122,11 @@ const Navbar = () => {
             <li>
               <NavLink to="/my-profile" className="text-base font-bold">
                 My Profile
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/feedback" className="text-base font-bold">
+                Feedback
               </NavLink>
             </li>
           </ul>
