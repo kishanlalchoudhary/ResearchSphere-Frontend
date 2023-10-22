@@ -127,10 +127,11 @@ const HomePage = () => {
               Connect to platform and build your profile
             </h1>
             <p className="py-6 break-words text-justify">
-              We are a US-based software company that has been around for the
-              past 7 years and provides software servWe are a US-based software
-              company that has been around for the past 7 years and provides
-              software serv
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
+              eveniet corrupti quis, possimus id ducimus cupiditate non dolor
+              itaque alias optio fuga dolorem assumenda, ipsam unde odit!
+              Tempore nulla cumque, iusto adipisci nihil facere! Blanditiis
+              numquam impedit repellendus iure quibusdam?
             </p>
           </div>
         </div>
@@ -149,10 +150,11 @@ const HomePage = () => {
               Explore the various opportunities{" "}
             </h1>
             <p className="py-6 break-words text-justify">
-              We are a US-based software company that has been around for the
-              past 7 years and provides software servWe are a US-based software
-              company that has been around for the past 7 years and provides
-              software serv
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
+              eveniet corrupti quis, possimus id ducimus cupiditate non dolor
+              itaque alias optio fuga dolorem assumenda, ipsam unde odit!
+              Tempore nulla cumque, iusto adipisci nihil facere! Blanditiis
+              numquam impedit repellendus iure quibusdam?
             </p>
           </div>
         </div>
@@ -171,10 +173,11 @@ const HomePage = () => {
               Join the Research opportunity
             </h1>
             <p className="py-6 break-words text-justify">
-              We are a US-based software company that has been around for the
-              past 7 years and provides software servWe are a US-based software
-              company that has been around for the past 7 years and provides
-              software service
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
+              eveniet corrupti quis, possimus id ducimus cupiditate non dolor
+              itaque alias optio fuga dolorem assumenda, ipsam unde odit!
+              Tempore nulla cumque, iusto adipisci nihil facere! Blanditiis
+              numquam impedit repellendus iure quibusdam?
             </p>
           </div>
         </div>
