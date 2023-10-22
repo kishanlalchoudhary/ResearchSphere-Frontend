@@ -45,6 +45,11 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li>
+                <NavLink to="/about-us" className="text-base font-bold">
+                  About Us
+                </NavLink>
+              </li>
+              <li>
                 <NavLink to="/explore" className="text-base font-bold">
                   Explore
                 </NavLink>
@@ -70,8 +75,8 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <NavLink to="/feedback" className="text-base font-bold">
-                  Feedback
+                <NavLink to="/contact-us" className="text-base font-bold">
+                  Contact Us
                 </NavLink>
               </li>
             </ul>
@@ -97,9 +102,12 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         {token && (
-          <ul className="menu menu-horizontal px-1 p-0 space-x-4">
+          <ul className="menu menu-horizontal px-1 p-0">
             <li className="text-base font-bold">
               <NavLink to="/">Home</NavLink>
+            </li>
+            <li className="text-base font-bold">
+              <NavLink to="/about-us">About Us</NavLink>
             </li>
             <li className="text-base font-bold">
               <NavLink to="/explore">Explore</NavLink>
@@ -125,8 +133,8 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/feedback" className="text-base font-bold">
-                Feedback
+              <NavLink to="/contact-us" className="text-base font-bold">
+                Contact Us
               </NavLink>
             </li>
           </ul>

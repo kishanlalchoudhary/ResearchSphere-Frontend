@@ -13,7 +13,7 @@ const Profile = ({ userName }) => {
   // States
   const [formData, setFormData] = useState({
     id: null,
-    role: "",
+    role: "Student",
     user_name: userName,
     about: "",
     contact_no: 0,

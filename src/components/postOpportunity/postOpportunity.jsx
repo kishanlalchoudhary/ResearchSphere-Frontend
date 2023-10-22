@@ -7,7 +7,7 @@ const PostOpportunity = () => {
         Want to Post a Research Opportunity?
       </h2>
       <div className="form-control items-center">
-        <Link to="/create-opportunity">
+        <Link to="/post-opportunity">
           <button className="btn btn-primary text-accent btn-md w-full lg:w-full  text-lg">
             Post Opportunity
           </button>

@@ -10,8 +10,8 @@ import NotFound from "./pages/notFound/notFound";
 import HomePage from "./pages/homepage/homePage";
 import SignIn from "./pages/signIn/signIn";
 import SignUp from "./pages/signUp/signUp";
-import EmailVerificationPending from "./pages/emailSentForVerification/emailVerificationPending";
-import EmailVerification from "./pages/emailVerification/emailVerification";
+// import EmailVerificationPending from "./pages/emailSentForVerification/emailVerificationPending";
+// import EmailVerification from "./pages/emailVerification/emailVerification";
 import Explore from "./pages/explore/explore";
 import OpportunityDetail from "./pages/opportunityDetail/opportunityDetail";
 import CreateOpportunity from "./pages/createOpportunity/createOpportunity";
@@ -21,7 +21,8 @@ import MyApplications from "./pages/myApplications/myApplications";
 import PostApplicants from "./pages/postApplicants/postApplicants";
 import MyProfile from "./pages/myProfile/myProfile";
 import ProfileDetails from "./pages/profileDetails/profileDetails";
-import Feedback from "./pages/feedback/feedback";
+import ContactUs from "./pages/contactUs/contactUs";
+import AboutUs from "./pages/aboutUs/aboutUs";
 
 // Toastify
 import "react-toastify/dist/ReactToastify.css";
@@ -35,9 +36,14 @@ const App = () => {
       <Route exact path="/" element={<RootLayout />}>
         <Route index exact element={<HomePage />} />
         <Route
-          path="feedback"
+          path="contact-us"
           exact
-          element={token ? <Feedback /> : <Navigate to="/sign-in" />}
+          element={token ? <ContactUs /> : <Navigate to="/sign-in" />}
+        />
+        <Route
+          path="about-us"
+          exact
+          element={token ? <AboutUs /> : <Navigate to="/sign-in" />}
         />
         <Route
           exact
@@ -87,12 +93,12 @@ const App = () => {
       </Route>
       <Route exact path="/sign-in" element={<SignIn />} />
       <Route exact path="/sign-up" element={<SignUp />} />
-      <Route exact path="email-verification" element={<EmailVerification />} />
-      <Route
+      {/* <Route exact path="email-verification" element={<EmailVerification />} /> */}
+      {/* <Route
         exact
         path="email-verification-pending"
         element={<EmailVerificationPending />}
-      />
+      /> */}
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
