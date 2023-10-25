@@ -21,7 +21,7 @@ import MyApplications from "./pages/myApplications/myApplications";
 import PostApplicants from "./pages/postApplicants/postApplicants";
 import MyProfile from "./pages/myProfile/myProfile";
 import ProfileDetails from "./pages/profileDetails/profileDetails";
-import ContactUs from "./pages/contactUs/contactUs";
+import Feedback from "./pages/feedback/feedback";
 import AboutUs from "./pages/aboutUs/aboutUs";
 
 // Toastify
@@ -36,9 +36,9 @@ const App = () => {
       <Route exact path="/" element={<RootLayout />}>
         <Route index exact element={<HomePage />} />
         <Route
-          path="contact-us"
+          path="feedback"
           exact
-          element={token ? <ContactUs /> : <Navigate to="/sign-in" />}
+          element={token ? <Feedback /> : <Navigate to="/sign-in" />}
         />
         <Route
           path="about-us"

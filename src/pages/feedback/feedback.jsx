@@ -3,12 +3,12 @@ import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
 // Apis
-import api from "../../api/axios"
+import api from "../../api/axios";
 
-const ContactUs = () => {
+const Feedback = () => {
   const [formData, setFormData] = useState({
+    name: "",
     email: "",
-    subject: "",
     message: "",
   });
 
@@ -26,8 +26,8 @@ const ContactUs = () => {
       const response = await api.post(`/feedback/`, formData);
       // console.log(response.data);
       setFormData({
+        name: "",
         email: "",
-        subject: "",
         message: "",
       });
       toast.success("Submitted Successfully", {
@@ -42,11 +42,19 @@ const ContactUs = () => {
 
   return (
     <div className="flex flex-col items-center px-6 lg:px-0 pt-2 pb-6">
-      <h2 className="flex text-4xl font-bold text-primary my-4">Contact Us</h2>
+      <h2 className="flex text-4xl font-bold text-primary my-4">Feedback</h2>
       <div className="card bg-accent shadow-md w-full lg:w-3/6 rounded-lg">
         <div className="card-body p-5">
           <div className="form-control w-full">
-            <div className="text-lg font-bold my-2">Email</div>
+            <div className="text-lg font-bold my-2">Name</div>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="input input-bordered w-full"
+            />
+            <div className="text-lg font-bold mt-4 mb-2">Email</div>
             <input
               type="email"
               name="email"
@@ -54,15 +62,9 @@ const ContactUs = () => {
               onChange={handleChange}
               className="input input-bordered w-full"
             />
-            <div className="text-lg font-bold mt-4 mb-2">Subject</div>
-            <input
-              type="text"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              className="input input-bordered w-full"
-            />
-            <div className="text-lg font-bold mt-4 mb-2">Message</div>
+            <div className="text-lg font-bold mt-4 mb-2">
+              Suggestion / Feedback
+            </div>
             <textarea
               className="textarea textarea-bordered"
               name="message"
@@ -84,4 +86,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default Feedback;
