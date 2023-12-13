@@ -2,6 +2,10 @@
 
 ResearchSphere is a platform designed to bridge the gap between students seeking research opportunities and professors offering such opportunities.
 
+## Screenshot
+
+![Screenshot (691)](https://github.com/kishanlalchoudhary/ResearchSphere-Frontend/assets/107745828/5e961a37-1964-4b4a-b539-6382e5ec6edd)
+
 ## Key Features
 
 - **User Authentication** : Secure user registration and login.
