@@ -1,9 +1,6 @@
-// Imports
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import moment from "moment";
-
-// Components
 import ConfirmationalModal from "../confirmationalModal/confirmationalModal";
 
 const OpportunityLarge = ({ opportunity }) => {
@@ -23,7 +20,6 @@ const OpportunityLarge = ({ opportunity }) => {
             ))}
           </div>
         </div>
-
         <div className="px-1">
           <div className="text-lg my-5 flex flex-wrap justify-between gap-2 items-start">
             <div>
@@ -44,14 +40,12 @@ const OpportunityLarge = ({ opportunity }) => {
             </div>
           </div>
         </div>
-
         <div className="sm:mb-6 px-1 text-lg text-justify">
           <b>
             Descripition : <br />
           </b>
           <p className="px-1">{opportunity?.description}</p>
         </div>
-
         <div className="flex flex-wrap justify-start items-center text-lg gap-4 my-5 sm:mt-0 px-1">
           <b>Skills</b>
           {opportunity?.skills?.map((skill, index) => (
@@ -63,7 +57,6 @@ const OpportunityLarge = ({ opportunity }) => {
             </h3>
           ))}
         </div>
-
         <div className="flex justify-center">
           <button
             onClick={() => window.my_modal_2.showModal()}

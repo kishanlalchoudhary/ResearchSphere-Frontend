@@ -1,8 +1,5 @@
-// Imports
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-
-// Apis
 import api from "../../api/axios";
 
 const Feedback = () => {
@@ -12,7 +9,6 @@ const Feedback = () => {
     message: "",
   });
 
-  // Input value Change Handler
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };

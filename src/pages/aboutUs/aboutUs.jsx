@@ -135,10 +135,10 @@ const AboutUs = () => {
           <h5 className="mb-4 text-2xl md:text-lg font-bold">
             Kishanlal Choudhary
           </h5>
-          <p className="mb-6 text-xl md:text-base">Frontend Developer</p>
+          <p className="mb-6 text-xl md:text-base">Full Stack Developer</p>
           <ul className="mx-auto flex list-inside justify-center">
             <a
-              href="https://www.linkedin.com/in/kishanlal-choudhary-a94154217/"
+              href="https://www.linkedin.com/in/kishanlalchoudhary"
               className="px-2"
             >
               <svg

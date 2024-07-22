@@ -1,11 +1,6 @@
-// Imports
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-
-// Components
 import Post from "../../components/post/post";
-
-// Apis
 import api from "../../api/axios";
 
 const MyPosts = () => {
@@ -29,7 +24,6 @@ const MyPosts = () => {
     }
   };
 
-  // Delete Post Handler
   const handleDelete = async (id) => {
     try {
       const response = await api.delete(`/opportunities/my/${id}`);
@@ -57,7 +51,7 @@ const MyPosts = () => {
       <h2 className="flex text-4xl font-bold text-primary my-4">My Posts</h2>
       <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 p-4 w-full lg:w-5/6 xl:4/6">
         {posts?.map((post) => (
-          <Post key={post._id} post={post} handleDelete={handleDelete} />
+          <Post key={post?._id} post={post} handleDelete={handleDelete} />
         ))}
       </div>
       <ToastContainer />

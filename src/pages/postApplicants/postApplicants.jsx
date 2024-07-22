@@ -1,32 +1,23 @@
-// Imports
 import moment from "moment";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-
-// Api
 import api from "../../api/axios";
-
-// Components
 import Applicants from "../../components/applicants/applicants";
 
 const PostApplicants = () => {
-  // Hooks
   const { postId } = useParams();
-
-  // States
   const [opportunity, setOpportunity] = useState({});
 
-  // Get Opportunity List
   const getOpportunity = async () => {
     try {
       const response = await api.get(`/opportunities/all/${postId}`);
+      setOpportunity(response.data?.data?.opportunity);
       // toast.success(response.data.message, {
       //   theme: "colored",
       //   closeOnClick: true,
       //   pauseOnHover: true,
       // });
-      setOpportunity(response.data?.data?.opportunity);
     } catch (err) {
       toast.err(err.response.data?.message, {
         theme: "colored",
@@ -56,7 +47,6 @@ const PostApplicants = () => {
             ))}
           </div>
         </div>
-
         <div className="px-1">
           <div className="text-lg my-5 flex flex-wrap justify-between gap-2 items-start">
             <div>
@@ -73,14 +63,12 @@ const PostApplicants = () => {
             </div>
           </div>
         </div>
-
         <div className="sm:mb-6 px-1 text-lg text-justify">
           <b>
             Descripition : <br />
           </b>
           <p className="px-1">{opportunity?.description}</p>
         </div>
-
         <div className="flex flex-wrap justify-start items-center text-lg gap-4 mt-5 sm:mt-0 px-1">
           <b>Skills : </b>
           {opportunity?.skills?.map((skill, index) => (
@@ -92,7 +80,6 @@ const PostApplicants = () => {
             </h3>
           ))}
         </div>
-
         <div className="flex justify-center items-center w-full">
           <Applicants postId={postId} />
         </div>

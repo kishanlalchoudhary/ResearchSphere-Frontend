@@ -1,13 +1,9 @@
-// Imports
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-
-// Apis
 import api from "../../api/axios.js";
 import List from "../list/list.jsx";
 
 const OpportunityForm = () => {
-  // States
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -17,12 +13,10 @@ const OpportunityForm = () => {
     skills: [],
   });
 
-  // Input value Change Handler
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  // Opportunity Creation Handler
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -154,9 +148,9 @@ const OpportunityForm = () => {
           </div>
         </div>
       </div>
-
       <ToastContainer />
     </div>
   );
 };
+
 export default OpportunityForm;

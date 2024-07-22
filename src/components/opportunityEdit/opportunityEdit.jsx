@@ -1,18 +1,13 @@
-// Imports
 import List from "../list/list.jsx";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { useParams } from "react-router-dom";
 import moment from "moment";
-
-// Apis
 import api from "../../api/axios.js";
 
 const OpportunityEdit = () => {
-  // Hooks
   const { postId } = useParams();
 
-  // States
   const [formData, setFormData] = useState({
     title: "",
     description: new Date().toISOString().split("T")[0],
@@ -22,7 +17,6 @@ const OpportunityEdit = () => {
     skills: [],
   });
 
-  // Get Post Data, Domains and Skills
   const getData = async () => {
     try {
       const response = await api.get(`/opportunities/my/${postId}`);
@@ -49,7 +43,6 @@ const OpportunityEdit = () => {
     getData();
   }, []);
 
-  // Input value Change Handler
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -82,7 +75,6 @@ const OpportunityEdit = () => {
     }));
   };
 
-  // Post Edit Handler
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
