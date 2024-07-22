@@ -32,12 +32,12 @@ const SignUp = () => {
           password,
         };
         const response = await api.post("/users/signup", request);
-        const token = response.data.data.token;
+        const token = response.data?.data?.token;
         Cookies.set("token", token);
         navigate("/explore");
         window.location.reload();
       } catch (err) {
-        toast.error(err.response.data.message, {
+        toast.error(err.response.data?.message, {
           theme: "colored",
           closeOnClick: true,
           pauseOnHover: true,
