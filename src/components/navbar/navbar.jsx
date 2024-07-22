@@ -20,7 +20,7 @@ const Navbar = () => {
   const [token, setToken] = useState(Cookies.get("token"));
 
   const handleLogoutClick = () => {
-    api.post("/api/auth/token/logout/");
+    api.post("/users/logout");
     Cookies.remove("token");
     setToken(null);
     navigate("/");

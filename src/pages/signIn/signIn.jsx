@@ -28,22 +28,19 @@ const SignIn = () => {
         password,
       };
       const response = await axios.post(
-        `${import.meta.env.VITE_APP_BASE_URL}/auth/token/login/`,
+        `${import.meta.env.VITE_APP_BASE_URL}/users/login`,
         request
       );
-      const token = response.data.auth_token;
+      const token = response.data.data.token;
       Cookies.set("token", token);
       navigate("/explore");
       window.location.reload();
     } catch (err) {
-      Object.values(err.response.data).forEach((value) =>
-        // console.log(value[0])
-        toast.error(value[0], {
-          theme: "colored",
-          closeOnClick: true,
-          pauseOnHover: true,
-        })
-      );
+      toast.error(err.response.data.message, {
+        theme: "colored",
+        closeOnClick: true,
+        pauseOnHover: true,
+      });
     }
   };
 

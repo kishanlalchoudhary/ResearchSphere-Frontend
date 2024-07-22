@@ -2,6 +2,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { useState } from "react";
+import Cookies from "js-cookie";
 
 // Assets
 import Logo from "../../assets/logo.png";
@@ -30,18 +31,17 @@ const SignUp = () => {
           email,
           password,
         };
-        await api.post("/auth/users/", request);
-        navigate("/sign-in");
-        // navigate("../email-verification-pending");
+        const response = await api.post("/users/signup", request);
+        const token = response.data.data.token;
+        Cookies.set("token", token);
+        navigate("/explore");
+        window.location.reload();
       } catch (err) {
-        Object.values(err.response.data).forEach((value) =>
-          // console.log(value[0])
-          toast.error(value[0], {
-            theme: "colored",
-            closeOnClick: true,
-            pauseOnHover: true,
-          })
-        );
+        toast.error(err.response.data.message, {
+          theme: "colored",
+          closeOnClick: true,
+          pauseOnHover: true,
+        });
       }
     } else {
       toast.error("Passwords Don't Match", {
