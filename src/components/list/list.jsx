@@ -4,14 +4,20 @@ import { useState } from "react";
 const List = ({ list, addDataHandler, deleteDataHandler }) => {
   const [inputValue, setInputValue] = useState("");
 
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
   };
 
-  const handleAdd = (e) => {
-    if (e.key === "Enter" && inputValue.trim() !== "") {
+  const handleAdd = () => {
+    if (inputValue.trim() !== "") {
       addDataHandler(inputValue);
-      setInputValue("");
+      setInputValue(""); 
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleAdd();
       e.preventDefault();
     }
   };
@@ -34,13 +40,16 @@ const List = ({ list, addDataHandler, deleteDataHandler }) => {
             </button>
           </span>
         ))}
-        <input
-          type="text"
-          value={inputValue}
-          onChange={handleInputChange}
-          onKeyDown={handleAdd}
-          className="input input-bordered w-full rounded"
-        />
+        <div className="flex w-full gap-1">
+          <input
+            type="text"
+            value={inputValue}
+            onChange={handleInputChange}
+            onKeyDown={handleKeyDown}
+            className="input input-bordered w-5/6 rounded"
+          />
+          <button className="bg-primary text-white w-1/6 rounded" onClick={handleAdd}>+</button>
+        </div>
       </div>
     </div>
   );

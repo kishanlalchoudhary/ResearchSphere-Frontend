@@ -36,7 +36,7 @@ const SignUp = () => {
         });
       }
     } else {
-      toast.error("Passwords Don't Match", {
+      toast.error("Passwords don't match", {
         theme: "colored",
         closeOnClick: true,
         pauseOnHover: true,

@@ -1,28 +1,20 @@
-// Imports
 import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { Link, useParams } from "react-router-dom";
-
-// Api
 import api from "../../api/axios";
 
 const ProfileDetails = () => {
-  // Hooks
   const { userId } = useParams();
-  // console.log(userId);
-
-  // States
   const [profile, setProfile] = useState({});
 
-  // Get Profile Data
   const getProfileData = async () => {
     try {
       const response = await api.get(`/profile/all/${userId}`);
-      toast.success(response.data?.message, {
-        theme: "colored",
-        closeOnClick: true,
-        pauseOnHover: true,
-      });
+      // toast.success(response.data?.message, {
+      //   theme: "colored",
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      // });
       setProfile(response.data?.data?.profile);
     } catch (err) {
       console.log(err);
