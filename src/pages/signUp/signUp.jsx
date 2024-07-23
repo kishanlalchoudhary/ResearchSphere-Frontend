@@ -1,26 +1,18 @@
-// Imports
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { useState } from "react";
-
-// Assets
+import Cookies from "js-cookie";
 import Logo from "../../assets/logo.png";
 import pageImage from "../../assets/signUp/signUp.png";
-
-// Apis
 import api from "../../api/axios";
 
 const SignUp = () => {
-  // Hooks
   const navigate = useNavigate();
-
-  // States
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  // Register handling
   const handleEmailClick = async (e) => {
     e.preventDefault();
     if (confirmPassword == password) {
@@ -30,21 +22,21 @@ const SignUp = () => {
           email,
           password,
         };
-        await api.post("/auth/users/", request);
-        navigate("/sign-in");
-        // navigate("../email-verification-pending");
+        const response = await api.post("/users/signup", request);
+        const token = response.data?.data?.token;
+        Cookies.set("token", token);
+        navigate("/explore");
+        window.location.reload();
       } catch (err) {
-        Object.values(err.response.data).forEach((value) =>
-          // console.log(value[0])
-          toast.error(value[0], {
-            theme: "colored",
-            closeOnClick: true,
-            pauseOnHover: true,
-          })
-        );
+        console.log(err);
+        toast.error(err.response.data?.message, {
+          theme: "colored",
+          closeOnClick: true,
+          pauseOnHover: true,
+        });
       }
     } else {
-      toast.error("Passwords Don't Match", {
+      toast.error("Passwords don't match", {
         theme: "colored",
         closeOnClick: true,
         pauseOnHover: true,
@@ -165,9 +157,9 @@ const SignUp = () => {
           </div>
         </div>
       </div>
-
       <ToastContainer />
     </div>
   );
 };
+
 export default SignUp;
