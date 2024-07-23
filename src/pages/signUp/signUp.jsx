@@ -1,27 +1,18 @@
-// Imports
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { useState } from "react";
 import Cookies from "js-cookie";
-
-// Assets
 import Logo from "../../assets/logo.png";
 import pageImage from "../../assets/signUp/signUp.png";
-
-// Apis
 import api from "../../api/axios";
 
 const SignUp = () => {
-  // Hooks
   const navigate = useNavigate();
-
-  // States
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  // Register handling
   const handleEmailClick = async (e) => {
     e.preventDefault();
     if (confirmPassword == password) {
@@ -37,6 +28,7 @@ const SignUp = () => {
         navigate("/explore");
         window.location.reload();
       } catch (err) {
+        console.log(err);
         toast.error(err.response.data?.message, {
           theme: "colored",
           closeOnClick: true,
@@ -165,9 +157,9 @@ const SignUp = () => {
           </div>
         </div>
       </div>
-
       <ToastContainer />
     </div>
   );
 };
+
 export default SignUp;

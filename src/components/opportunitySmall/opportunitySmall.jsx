@@ -30,7 +30,7 @@ const OpportunitySmall = ({ opportunity }) => {
             <b>End Date :&nbsp;</b>
             {moment(opportunity?.endDate).format("DD/MM/YYYY")}
           </div>
-          <div className="flex">
+          <div className="flex flex-wrap">
             <b>Created By :&nbsp;</b>
             <Link to={`/profile-details/${opportunity?.owner?._id}`}>
               <p className="underline text-primary">

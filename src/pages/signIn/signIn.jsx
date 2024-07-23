@@ -1,25 +1,16 @@
-// Imports
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { ToastContainer, toast } from "react-toastify";
-
-// Assets
 import Logo from "../../assets/logo.png";
 import pageImage from "../../assets/signIn/signIn.png";
-
-// Apis
 import axios from "axios";
 
 const SignIn = () => {
-  // Hooks
   const navigate = useNavigate();
-
-  // States
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // Login Handler
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -36,6 +27,7 @@ const SignIn = () => {
       navigate("/explore");
       window.location.reload();
     } catch (err) {
+      console.log(err);
       toast.error(err.response.data?.message, {
         theme: "colored",
         closeOnClick: true,
@@ -147,9 +139,9 @@ const SignIn = () => {
           <img src={pageImage} className="lg:max-w-sm min-w-xs rounded-lg" />
         </div>
       </div>
-
       <ToastContainer />
     </div>
   );
 };
+
 export default SignIn;

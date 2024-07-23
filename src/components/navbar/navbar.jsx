@@ -1,30 +1,30 @@
-// Imports
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Cookies from "js-cookie";
-
-// Apis
 import api from "../../api/axios";
-
-// Styles
 import "./navbar.css";
-
-// Images
 import Logo from "../../assets/logo.png";
+import { toast, ToastContainer } from "react-toastify";
 
 const Navbar = () => {
-  // Hooks
   const navigate = useNavigate();
-
-  // States
   const [token, setToken] = useState(Cookies.get("token"));
 
-  const handleLogoutClick = () => {
-    api.post("/users/logout");
-    Cookies.remove("token");
-    setToken(null);
-    navigate("/");
-    window.location.reload();
+  const handleLogoutClick = async () => {
+    try {
+      await api.post("/users/logout");
+      Cookies.remove("token");
+      setToken(null);
+      navigate("/");
+      window.location.reload();
+    } catch (err) {
+      console.log(err);
+      toast.error(err.response.data?.message, {
+        theme: "colored",
+        closeOnClick: true,
+        pauseOnHover: true,
+      });
+    }
   };
 
   return (
@@ -174,6 +174,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

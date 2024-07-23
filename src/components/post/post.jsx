@@ -9,13 +9,13 @@ const Post = ({ post, handleDelete }) => {
         <h2 className="text-2xl font-semibold">{post?.title}</h2>
         <div>
           <div className="text-lg my-4 flex justify-start items-center">
-            <b>Created At : </b> &nbsp;
+            <b>Created On : </b> &nbsp;
             {moment(post?.createdAt).format("DD/MM/YYYY")}
           </div>
           <div className="flex flex-row w-full justify-between items-center">
             <Link to={`/post-applicants/${post?._id}`}>
               <button className="flex bg-accent hover:bg-primary text-primary border hover:text-accent border-primary font-semibold px-4 py-2 rounded-lg">
-                Applicants
+                Applications
               </button>
             </Link>
             <Link to={`/post-edit/${post?._id}`}>

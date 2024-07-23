@@ -25,6 +25,7 @@ const ProfileDetails = () => {
       });
       setProfile(response.data?.data?.profile);
     } catch (err) {
+      console.log(err);
       toast.error(err.response.data?.message, {
         theme: "colored",
         closeOnClick: true,

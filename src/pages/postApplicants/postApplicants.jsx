@@ -19,6 +19,7 @@ const PostApplicants = () => {
       //   pauseOnHover: true,
       // });
     } catch (err) {
+      console.error(err);
       toast.err(err.response.data?.message, {
         theme: "colored",
         closeOnClick: true,
@@ -58,7 +59,7 @@ const PostApplicants = () => {
               {moment(opportunity?.endDate).format("DD/MM/YYYY")}
             </div>
             <div>
-              <b>Created At : </b>
+              <b>Created On : </b>
               {moment(opportunity?.createdAt).format("DD/MM/YYYY")}
             </div>
           </div>

@@ -24,6 +24,7 @@ const Profile = () => {
       //   pauseOnHover: true,
       // });
     } catch (err) {
+      console.log(err);
       toast.error(err.response.data?.message, {
         theme: "colored",
         closeOnClick: true,
@@ -51,6 +52,7 @@ const Profile = () => {
       });
       getProfileData();
     } catch (err) {
+      console.log(err);
       toast.error(err.response.data?.message, {
         theme: "colored",
         closeOnClick: true,

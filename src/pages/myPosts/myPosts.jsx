@@ -16,6 +16,7 @@ const MyPosts = () => {
       // });
       setPosts(response.data?.data?.opportunities);
     } catch (err) {
+      console.log(err);
       toast.err(err.response.data?.message, {
         theme: "colored",
         closeOnClick: true,
@@ -34,6 +35,7 @@ const MyPosts = () => {
       });
       getPosts();
     } catch (err) {
+      console.log(err);
       toast.error(err.response.data?.message, {
         theme: "colored",
         closeOnClick: true,

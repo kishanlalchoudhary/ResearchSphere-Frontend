@@ -1,7 +1,4 @@
-// Imports
 import { Link } from "react-router-dom";
-
-// Assets
 import Img from "../../assets/appliedModal/appliedModal.png";
 
 const AppliedModal = () => {
