@@ -1,23 +1,62 @@
 # ResearchSphere Frontend
 
-ResearchSphere is a platform designed to bridge the gap between students seeking research opportunities and professors offering such opportunities.
+**ResearchSphere** is a platform designed to bridge the gap between students seeking research/project opportunities and professors offering such opportunities.
 
-## Screenshot
+## Prerequisites
 
-![Screenshot (691)](https://github.com/kishanlalchoudhary/ResearchSphere-Frontend/assets/107745828/8b1782e9-97f2-47c4-ab3f-50f3a02eada5)
+Make sure you have the following installed on your machine:
 
-## Key Features
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
 
-- **User Authentication** : Secure user registration and login.
-- **User Profiles** : Allow users to create and edit their profiles.
-- **Opportunity Management** : Create, list, update, and delete research opportunities.
-- **Application Handling** : Accept, reject, and withdraw applications for opportunities.
+## Getting Started
 
-## Technologies Used
+Follow these steps to set up the project locally:
 
-- **React** : A popular JavaScript library for building user interfaces.
-- **Vite** : A fast build tool for modern web development.
-- **Daisy UI** : A UI framework for Tailwind CSS that simplifies the creation of stylish web interfaces.
-- **Tailwind CSS** : A utility-first CSS framework for rapidly developing custom designs.
-- **Axios** : A JavaScript library for making HTTP requests from the browser.
-- **React Router** : A library for routing in React applications, enabling navigation between different views.
+1. **Clone the Repository**
+
+   First, clone the repository to your local machine:
+
+   ```bash
+   git clone https://github.com/kishanlalchoudhary/ResearchSphere-Frontend.git
+
+2. **Navigate to the Project Directory**
+
+   Change to the project directory:
+
+   ```bash
+   cd ResearchSphere-Frontend
+
+3. **Install Dependencies**
+
+   Install the required Node.js packages by running:
+
+   ```bash
+   npm install
+
+4. **Configure Environment Variables**
+
+   The project includes an env.example file that provides a template for the environment variables. To configure your environment, follow these steps:
+
+   - Copy the `env.example` file to create a `.env` file:
+
+   - Open the `.env` file and add your configuration details:
+
+5. **Start the Server**
+
+   To start the server, use the following command:
+
+   ```bash
+   npm run dev
+
+## Technologies and Packages Used
+
+- **React**: A popular JavaScript library for building user interfaces.
+- **Vite**: A fast build tool for modern web development.
+- **Daisy UI**: A UI framework for Tailwind CSS that simplifies the creation of stylish web interfaces.
+- **Tailwind CSS**: A utility-first CSS framework for rapidly developing custom designs.
+- **Axios**: A JavaScript library for making HTTP requests from the browser.
+- **React Router**: A library for routing in React applications, enabling navigation between different views.
+- **Moment.js**: A library for parsing, validating, manipulating, and formatting dates.
+- **js-cookie**: A simple, lightweight JavaScript API for handling cookies.
+- **React Toastify**: A library for displaying toast notifications in React applications.
