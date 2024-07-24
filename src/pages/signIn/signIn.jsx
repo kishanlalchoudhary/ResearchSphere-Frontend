@@ -23,7 +23,7 @@ const SignIn = () => {
         request
       );
       const token = response.data?.data?.token;
-      Cookies.set("token", token);
+      Cookies.set("token", token, { expires: 365 });
       navigate("/explore");
       window.location.reload();
     } catch (err) {
