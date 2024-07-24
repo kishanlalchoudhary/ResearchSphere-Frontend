@@ -1,6 +1,6 @@
 # ResearchSphere Frontend
 
-**ResearchSphere** is a web-based platform designed to connect students seeking research/project opportunities with professors offering them.
+The ResearchSphere Frontend is the user interface for the **ResearchSphere** platform. It provides a user-friendly and intuitive experience for students and professors, facilitating easy interaction with research opportunities. Emphasizing usability and responsiveness, the frontend delivers a smooth and visually appealing experience across all devices.
 
 ## Prerequisites
 
