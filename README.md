@@ -1,6 +1,6 @@
 # ResearchSphere Frontend
 
-**ResearchSphere** is a platform designed to bridge the gap between students seeking research/project opportunities and professors offering such opportunities.
+**ResearchSphere** is a web-based platform designed to connect students seeking research/project opportunities with professors offering them.
 
 ## Prerequisites
 
